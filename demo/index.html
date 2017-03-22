@@ -6,24 +6,34 @@
   </head>
 
   <style>
+    html, body{
+      margin: 0;
+      padding: 0;
+    }
+
+    .slidedeck{
+      list-style-type: none;
+    }
     .slidedeck li{
       width: 100vw;
       height: 100vh;
+      padding: 1em;
+      margin: 0;
     }
   </style>
   <body>
     <ol class="slidedeck">
-      <li>
+      <li style="background-color:gray;">
           <h2>Title Slide</h2>
           <p>This is my title slide</p>
       </li>
 
-      <li>
+      <li style="background-color:yellow;">
           <h2>Bio</h2>
           <p>This is my bio slide</p>
       </li>
 
-      <li>
+      <li style="background-color:green;">
           <h2>Outline</h2>
           <p>This is my outline slide</p>
       </li>
