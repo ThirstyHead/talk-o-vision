@@ -1,13 +1,16 @@
 'use strict';
 
 window.addEventListener('load', slideshowInit);
-window.addEventListener('keydown', keyHandler);
 
 /**
   * Slideshow initialization
   */
 function slideshowInit(){
   numberSlides();
+  window.addEventListener('keydown', keyHandler);
+  window.addEventListener('touchstart', gestureStart);
+  window.addEventListener('touchmove', gestureMove);
+  window.addEventListener('touchend', gestureEnd);
 }
 
 /**
@@ -85,5 +88,64 @@ function fullscreen(){
 
   if (requestFullscreen) {
     requestFullscreen.apply(html);
+  }
+}
+
+/**
+  * Handles start of a swipe on a touch-enabled device
+  * Adapted from https://patrickhlauke.github.io/touch/swipe/
+  */
+function gestureStart(e) {
+  if (e.touches.length > 1) {
+    window.sessionStorage.tracking = false;
+    return;
+  } else {
+    window.sessionStorage.tracking = true;
+    window.sessionStorage.thresholdTime = 500;
+    window.sessionStorage.thresholdDistance = 100;
+
+    /* Hack - would normally use e.timeStamp but it's whack in Fx/Android */
+    window.sessionStorage.startTime = new Date().getTime();
+    window.sessionStorage.startX = e.targetTouches[0].clientX;
+    window.sessionStorage.startY = e.targetTouches[0].clientY;
+  }
+};
+
+/**
+  * Handles middle of a swipe on a touch-enabled device
+  * Adapted from https://patrickhlauke.github.io/touch/swipe/
+  */
+function gestureMove(e) {
+  if (window.sessionStorage.tracking) {
+    e.preventDefault();
+    window.sessionStorage.endX = e.targetTouches[0].clientX;
+    window.sessionStorage.endY = e.targetTouches[0].clientY;
+  }
+}
+
+/**
+  * Handles end of a swipe on a touch-enabled device
+  * Adapted from https://patrickhlauke.github.io/touch/swipe/
+  */
+function gestureEnd(e) {
+  window.sessionStorage.tracking = false;
+  let now = new Date().getTime();
+  let deltaTime = now - window.sessionStorage.startTime;
+  let deltaX = window.sessionStorage.endX - window.sessionStorage.startX;
+  let deltaY = window.sessionStorage.endY - window.sessionStorage.startY;
+  /* work out what the movement was */
+  if (deltaTime > window.sessionStorage.thresholdTime) {
+    /* gesture too slow */
+    return;
+  } else {
+    if ((deltaX > window.sessionStorage.thresholdDistance) &&
+        (Math.abs(deltaY) < window.sessionStorage.thresholdDistance)) {
+      // swipe right
+      nextSlide();
+    } else if ((-deltaX > window.sessionStorage.thresholdDistance) &&
+               (Math.abs(deltaY) < window.sessionStorage.thresholdDistance)) {
+      // swipe left
+      previousSlide();
+    }
   }
 }
