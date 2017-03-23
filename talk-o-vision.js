@@ -17,8 +17,6 @@ function slideshowInit(){
 function numberSlides(){
   let slides = document.querySelectorAll(".slideshow li");
   window.sessionStorage.slideCount = slides.length;
-
-  //number slides for #x url fragment navigation
   for(let i=0; i<slides.length; i++){
     slides[i].id = `${i + 1}`;
   }
@@ -30,15 +28,19 @@ function numberSlides(){
   */
 function keyHandler(e){
   switch(e.which){
+    case 33: // pgup
     case 37: // left
       e.preventDefault();
       previousSlide()
       break;
-    case 39: // right
+
     case 32: // spacebar
+    case 34: // pgdn
+    case 39: // right
       e.preventDefault();
       nextSlide()
       break;
+
     case 70: // f
       e.preventDefault();
       fullscreen();
