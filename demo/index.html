@@ -3,28 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Talk-o-Vision Demo</title>
+    <link rel="stylesheet" href="../talk-o-vision.css">
   </head>
 
-  <style>
-    html, body{
-      margin: 0;
-      padding: 0;
-    }
-
-    .slideshow{
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .slideshow li{
-      width: 100vw;
-      height: 100vh;
-      box-sizing: border-box;
-      margin: 0;
-      padding: 1em;
-    }
-  </style>
   <body>
     <ol class="slideshow">
       <li style="background-color:gray;">
@@ -46,18 +27,6 @@
     </ol>
 
 
-    <script type="text/javascript">
-      window.onload = slideshowInit();
-
-      function slideshowInit(){
-        let slides = document.querySelectorAll(".slideshow li");
-
-        //number slides for #x url fragment navigation
-        for(let i=0; i<slides.length; i++){
-          slides[i].id = `${i + 1}`;
-        }
-      }
-    </script>
-
+  <script src="../talk-o-vision.js" charset="utf-8"></script>
   </body>
 </html>

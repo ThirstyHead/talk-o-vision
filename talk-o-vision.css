@@ -1,0 +1,18 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li{
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1em;
+}
