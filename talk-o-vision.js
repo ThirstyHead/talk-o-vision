@@ -141,11 +141,11 @@ function gestureEnd(e) {
     if ((deltaX > window.sessionStorage.thresholdDistance) &&
         (Math.abs(deltaY) < window.sessionStorage.thresholdDistance)) {
       // swipe right
-      nextSlide();
+      previousSlide();
     } else if ((-deltaX > window.sessionStorage.thresholdDistance) &&
                (Math.abs(deltaY) < window.sessionStorage.thresholdDistance)) {
       // swipe left
-      previousSlide();
+      nextSlide();
     }
   }
 }
