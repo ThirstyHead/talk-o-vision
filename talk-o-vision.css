@@ -3,6 +3,12 @@ html, body{
   color: white;
   margin: 0;
   padding: 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
 }
 
 iframe{
@@ -26,11 +32,15 @@ iframe{
 .slide{
   box-sizing: border-box;
   margin: 0;
-  padding: 1em;
+  padding: 0;
 }
 
 .slide img{
   /* NOTE: setting width misbehaves on Chrome, Firefox */
   /*width: 100vw;*/
   height: 100vh;
+}
+
+.slide aside{
+  display: none;
 }
