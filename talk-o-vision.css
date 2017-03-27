@@ -47,7 +47,7 @@ ul > li{
   padding: 0;
 }
 
-.slide img{
+.slide > img{
   /* NOTE: setting width misbehaves on Chrome, Firefox */
   /*width: 100vw;*/
   height: 100vh;

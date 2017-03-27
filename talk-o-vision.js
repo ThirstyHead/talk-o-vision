@@ -16,7 +16,7 @@ function slideshowInit(){
   * This enables hash / fragment navigation (http://foo.com/#12).
   */
 function numberSlides(){
-  let slides = document.querySelectorAll(".slideshow li");
+  let slides = document.querySelectorAll(".slideshow > li");
   window.sessionStorage.slideCount = slides.length;
   for(let i=0; i<slides.length; i++){
     slides[i].id = `${i + 1}`;
