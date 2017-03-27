@@ -8,7 +8,7 @@ html, body{
 }
 
 h1, h2, h3, h4, h5, h6{
-  margin: 0;
+  padding: 1rem 0 0 0;
 }
 
 iframe{
@@ -17,13 +17,25 @@ iframe{
   height: 100vh;
 }
 
+ul{
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+}
+
+ul > li{
+  list-style: disc;
+  color: white;
+}
+
+
 .slideshow{
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.slideshow li{
+.slideshow > li{
   width: 100vw;
   height: 100vh;
   page-break-after: always;
