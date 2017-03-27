@@ -1,6 +1,14 @@
 html, body{
+  background-color: black;
+  color: white;
   margin: 0;
   padding: 0;
+}
+
+iframe{
+  border: none;
+  width: 100vw;
+  height: 100vh;
 }
 
 .slideshow{
@@ -12,8 +20,17 @@ html, body{
 .slideshow li{
   width: 100vw;
   height: 100vh;
+  page-break-after: always;
+}
+
+.slide{
   box-sizing: border-box;
   margin: 0;
   padding: 1em;
-  page-break-after: always;
+}
+
+.slide img{
+  /* NOTE: setting width misbehaves on Chrome, Firefox */
+  /*width: 100vw;*/
+  height: 100vh;
 }
