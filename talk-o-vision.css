@@ -1,6 +1,68 @@
 html, body{
+  background-color: black;
+  color: white;
   margin: 0;
   padding: 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+aside{
+  display: none;
+}
+
+code{
+  width: 75%;
+  text-align: left;
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: white;
+  color: black;
+  font-family: monospace;
+}
+
+h1, h2, h3, h4, h5, h6{
+  padding: 1rem 0 0 0;
+}
+
+h1 + img{
+  max-height: 65%;
+}
+
+h2 + img{
+  max-height: 75%;
+}
+
+iframe{
+  border: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+ul{
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+}
+
+ul > li{
+  list-style: disc;
+  color: white;
+}
+
+.bg-white{
+  color: black;
+  background-color: white;
+}
+
+.highlight{
+  color: yellow;
+}
+
+.side-by-side{
+  float: left;
+  width: 45%;
+  padding-left: 2.5%;
 }
 
 .slideshow{
@@ -9,11 +71,24 @@ html, body{
   padding: 0;
 }
 
-.slideshow li{
+.slideshow > li{
   width: 100vw;
   height: 100vh;
+  page-break-after: always;
+}
+
+.slide{
   box-sizing: border-box;
   margin: 0;
-  padding: 1em;
-  page-break-after: always;
+  padding: 0;
+}
+
+.slide + img{
+  /* NOTE: setting width misbehaves on Chrome, Firefox */
+  /*width: 100vw;*/
+  height: 100vh;
+}
+
+.slide-img{
+  max-width: 100%;
 }
