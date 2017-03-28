@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+                                   minimum-scale=1,
+                                   initial-scale=1,
+                                   user-scalable=yes">
+    <title>Talk-o-Vision Demo</title>
+    <link rel="stylesheet" href="../talk-o-vision.css">
+  </head>
+
+  <body>
+    <ol class="slideshow">
+      <li>
+          <h1>Title Slide</h1>
+          <img src="title/img/BlooShooes.jpg"
+               alt="Blue Shoes"
+               data-original="https://morguefile.com/p/936834">
+
+          <aside>
+            This is a title slide. It is a slide with, uh, a title.
+          </aside>
+      </li>
+
+      <li class="bg-white">
+        <img src="bio/img/scott-davis-bio.png" alt="Scott Davis' Biography">
+      </li>
+
+      <li>
+        <iframe src="bio/"></iframe>
+      </li>
+
+      <li>
+          <h2>Outline</h2>
+          <ul>
+            <li>We'll cover this</li>
+            <li>and this</li>
+            <li>and this other thing, too</li>
+          </ul>
+      </li>
+
+      <li>
+        <h2>Here's a code example</h2>
+        <pre><code>
+let message = "JavaScript is cool!";
+String.prototype.shout = function(){
+  return this.toUpperCase();
+}
+        </code></pre>
+      </li>
+
+      <li>
+        <h2>Here's an image</h2>
+        <img src="shoes/img/shoes.jpg"
+             alt="shoes"
+             data-original="https://morguefile.com/p/23395">
+      </li>
+
+      <li class="bg-white">
+        <h2>Here's a white background</h2>
+        <img src="shoes/img/shoes2.jpg"
+             alt="another pair of shoes"
+             data-original="https://morguefile.com/p/23398">
+      </li>
+
+      <li>
+        <h2>Here's an example with <span class="highlight">highlighting</span></h2>
+
+        <p>Use this <span class="highlight">sparingly</span>, of course...</p>
+      </li>
+
+      <li>
+        <h2>Side-by-side</h2>
+        <div class="side-by-side">
+          <ul>
+            <li>I'm</li>
+            <li>on</li>
+            <li>the</li>
+            <li class="highlight">left</li>
+          </ul>
+        </div>
+
+        <div class="side-by-side">
+          <ul>
+            <li>I'm</li>
+            <li>on</li>
+            <li>the</li>
+            <li class="highlight">right</li>
+          </ul>
+        </div>
+
+        <div class="side-by-side">
+          I'm a paragraph on the left side. I'm a paragraph on the left side.
+          I'm a paragraph on the left side. I'm a paragraph on the left side.
+        </div>
+
+        <div class="side-by-side">
+          I'm a paragraph on the right side. I'm a paragraph on the right side.
+          I'm a paragraph on the right side. I'm a paragraph on the right side.
+        </div>
+      </li>
+
+      <li>
+        <h2>Side-by-side images</h2>
+
+        <div class="side-by-side">
+          <img src="title/img/BlooShooes.jpg"
+               alt="Blue Shoes"
+               class="slide-img"
+               data-original="https://morguefile.com/p/936834">
+        </div>
+
+        <div class="side-by-side">
+          <img src="shoes/img/shoes2.jpg"
+               alt="another pair of shoes"
+               class="slide-img"
+               data-original="https://morguefile.com/p/23398">
+        </div>
+      </li>
+
+    </ol>
+
+
+  <script src="../talk-o-vision.js" charset="utf-8"></script>
+  </body>
+</html>
