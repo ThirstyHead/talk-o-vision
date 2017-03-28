@@ -8,6 +8,7 @@ window.addEventListener('load', slideshowInit);
 function slideshowInit(){
   numberSlides();
   augmentSlides();
+  augmentExternalSlides();
   window.addEventListener('keydown', keyHandler);
 }
 
@@ -16,7 +17,7 @@ function slideshowInit(){
   * This enables hash / fragment navigation (http://foo.com/#12).
   */
 function numberSlides(){
-  let slides = document.querySelectorAll(".slideshow li");
+  let slides = document.querySelectorAll(".slideshow > li");
   window.sessionStorage.slideCount = slides.length;
   for(let i=0; i<slides.length; i++){
     slides[i].id = `${i + 1}`;
@@ -24,16 +25,25 @@ function numberSlides(){
 }
 
 /**
-  * Adds slideshow-specific styling + behavior to external slides.
+  * Adds a "slide" css style to each slide
   */
 function augmentSlides(){
+  let slides = document.querySelectorAll(".slideshow > li");
+  for(let i=0; i<slides.length; i++){
+    slides[i].classList.add("slide");
+  }
+}
+
+/**
+  * Adds slideshow-specific styling to external slides.
+  */
+function augmentExternalSlides(){
   let cssLink = document.createElement("link");
   cssLink.href = "../../talk-o-vision.css";
   cssLink.rel = "stylesheet";
   cssLink.type = "text/css";
 
   let slides = document.querySelectorAll(".slideshow li iframe");
-  console.dir(slides);
   for(let i=0; i<slides.length; i++){
     slides[i].contentDocument.head.appendChild(cssLink);
   }

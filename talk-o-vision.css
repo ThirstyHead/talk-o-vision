@@ -7,8 +7,30 @@ html, body{
   font-size: 1.75em;
 }
 
+aside{
+  display: none;
+}
+
+code{
+  width: 75%;
+  text-align: left;
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: white;
+  color: black;
+  font-family: monospace;
+}
+
 h1, h2, h3, h4, h5, h6{
-  margin: 0;
+  padding: 1rem 0 0 0;
+}
+
+h1 + img{
+  max-height: 65%;
+}
+
+h2 + img{
+  max-height: 75%;
 }
 
 iframe{
@@ -17,13 +39,39 @@ iframe{
   height: 100vh;
 }
 
+ul{
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+}
+
+ul > li{
+  list-style: disc;
+  color: white;
+}
+
+.bg-white{
+  color: black;
+  background-color: white;
+}
+
+.highlight{
+  color: yellow;
+}
+
+.side-by-side{
+  float: left;
+  width: 45%;
+  padding-left: 2.5%;
+}
+
 .slideshow{
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.slideshow li{
+.slideshow > li{
   width: 100vw;
   height: 100vh;
   page-break-after: always;
@@ -35,12 +83,12 @@ iframe{
   padding: 0;
 }
 
-.slide img{
+.slide + img{
   /* NOTE: setting width misbehaves on Chrome, Firefox */
   /*width: 100vw;*/
   height: 100vh;
 }
 
-.slide aside{
-  display: none;
+.slide-img{
+  max-width: 100%;
 }
