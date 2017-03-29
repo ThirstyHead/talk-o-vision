@@ -39,7 +39,7 @@ function augmentSlides(){
   */
 function augmentExternalSlides(){
   let cssLink = document.createElement("link");
-  cssLink.href = "../../talk-o-vision.css";
+  cssLink.href = "../../bower_components/talk-o-vision/talk-o-vision.css";
   cssLink.rel = "stylesheet";
   cssLink.type = "text/css";
 
