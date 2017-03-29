@@ -1,6 +1,6 @@
 {
   "name": "talk-o-vision",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An HTML-based slideshow framework",
   "main": "index.html",
   "scripts": {
