@@ -50,6 +50,60 @@ ul > li{
   color: white;
 }
 
+
+/*****************
+  Custom styles
+*****************/
+
+/* title slide */
+.title-slide{
+  /*background: url('slides/title/img/cloud-1.jpg') no-repeat center center;*/
+  background-size: contain;
+}
+
+.banner {
+  background-color: black;
+  opacity: 0.7;
+  width: 100%;
+}
+
+.banner-title {
+  font-size: 1em;
+  text-align: left;
+  padding: 0.5em;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.banner-title h1 {
+  font-size: 1.5em;
+  text-transform: none;
+  font-weight: bold;
+  margin: 0;
+}
+
+.banner-title h2 {
+  font-size: 1em;
+  text-transform: none;
+  font-style: italic;
+  margin: 0;
+}
+
+.banner-bio {
+  font-size: 0.5em;
+  text-align: right;
+  padding-right: 20%;
+  padding-bottom: 1em;
+}
+
+.banner-bio a{
+  color: white;
+}
+/* title slide */
+
+
+
+
 .bg-white{
   color: black;
   background-color: white;

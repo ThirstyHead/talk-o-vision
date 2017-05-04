@@ -7,20 +7,29 @@
                                    initial-scale=1,
                                    user-scalable=yes">
     <title>Talk-o-Vision Demo</title>
-    <link rel="stylesheet" href="../talk-o-vision.css">
+    <link rel="stylesheet" href="bower_components/talk-o-vision/talk-o-vision.css">
+    <style>
+      .title-slide{
+        background: url('slides/title/img/BlooShooes.jpg') no-repeat center center;
+        background-size: contain;
+      }
+    </style>
   </head>
 
   <body>
     <ol class="slideshow">
-      <li>
-          <h1>Title Slide</h1>
-          <img src="title/img/BlooShooes.jpg"
-               alt="Blue Shoes"
-               data-original="https://morguefile.com/p/936834">
-
-          <aside>
-            This is a title slide. It is a slide with, uh, a title.
-          </aside>
+      <li class="title-slide">
+          <div class="banner">
+            <div class="banner-title">
+              <h1>The Title Slide</h1>
+              <h2>talk-o-vision</h2>
+            </div>
+            <div class="banner-bio">
+              Scott Davis <br>
+              <a href="mailto:sdavis@thoughtworks.com">sdavis@thoughtworks.com</a> <br>
+              <a href="https://twitter.com/scottdavis99?lang=en">@scottdavis99</a>
+            </div>
+          </div>
       </li>
 
       <li class="bg-white">
@@ -122,6 +131,6 @@ String.prototype.shout = function(){
     </ol>
 
 
-  <script src="../talk-o-vision.js" charset="utf-8"></script>
+  <script src="bower_components/talk-o-vision/talk-o-vision.js" charset="utf-8"></script>
   </body>
 </html>
