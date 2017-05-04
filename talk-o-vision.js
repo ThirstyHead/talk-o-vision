@@ -8,7 +8,8 @@ window.addEventListener('load', slideshowInit);
 function slideshowInit(){
   numberSlides();
   augmentSlides();
-  augmentExternalSlides();
+  // augmentExternalSlides();
+  // need to revisit iframe functionality later
   window.addEventListener('keydown', keyHandler);
 }
 
