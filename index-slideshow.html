@@ -13,6 +13,30 @@
         background: url('slides/title/img/BlooShooes.jpg') no-repeat center center;
         background-size: contain;
       }
+
+      .slide-with-notes{
+        display: flex;
+        flex-flow: row;
+      }
+
+      .slide-with-notes section{
+        flex-basis: 70%;
+        display: block;
+      }
+
+      .slide-with-notes aside{
+        flex-basis: 30%;
+        display: block;
+        font-size: 1rem;
+        text-align: left;
+        overflow: scroll;
+      }
+
+      .slide-with-notes aside p{
+        font-size: 1rem;
+        text-align: left;
+      }
+
     </style>
   </head>
 
@@ -21,8 +45,8 @@
       <li class="title-slide">
           <div class="banner">
             <div class="banner-title">
-              <h1>The Title Slide</h1>
-              <h2>talk-o-vision</h2>
+              <h1>Talk-o-Vision</h1>
+              <h2>HTML5-based Slides</h2>
             </div>
             <div class="banner-bio">
               Scott Davis <br>
@@ -32,8 +56,20 @@
           </div>
       </li>
 
-      <li class="bg-white">
-        <img src="slides/bio/img/scott-davis-bio.png" alt="Scott Davis' Biography">
+      <li class="bg-white slide-with-notes">
+        <section>
+          <img src="slides/bio/img/scott-davis-bio.png"
+               alt="Scott Davis' Biography"
+               class="xfull-height">
+        </section>
+
+        <aside>
+          <p>Hi! My name is Scott Davis. I'm currently a Principle Engineer with ThoughtWorks. Before that, I ran a software consultancy out of Denver for a decade called ThirstyHead. </p>
+
+          <p>I've been writing about web development for years -- articles for IBM, books for O'Reilly and the Pragmatic Bookshelf, and most recently videos for O'Reilly as well.</p>
+
+          <p>I've been doing web development since the very beginning. I remember spending my hard-earned money on a Netscape Navigator license back in 1996, and no matter how hard I've tried to get a refund in the intervening years, I'm pretty sure that I'm never going to see that $19.99 again...</p>
+        </aside>
       </li>
 
       <!-- NOTE: need to revisit iframe feature later -->
