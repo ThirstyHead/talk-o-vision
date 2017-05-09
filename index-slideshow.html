@@ -14,18 +14,22 @@
         background-size: contain;
       }
 
+      input{
+        font-size: 2em;
+      }
+
       .slide-with-notes{
         display: flex;
         flex-flow: row;
       }
 
       .slide-with-notes section{
-        flex-basis: 70%;
+        flex-basis: 50%;
         display: block;
       }
 
       .slide-with-notes aside{
-        flex-basis: 30%;
+        flex-basis: 50%;
         display: block;
         font-size: 1rem;
         text-align: left;
@@ -56,7 +60,20 @@
           </div>
       </li>
 
-      <li class="bg-white slide-with-notes">
+      <li>
+        <section>
+          <h2>Settings</h2>
+          <p>To toggle notes on / off, press <span class="highlight">n</span>.</p>
+        </section>
+
+        <aside>
+          <p>Hi! If you can see me, you are viewing the notes.</p>
+          <p>To toggle notes on / off, press <span class="highlight">n</span>.</p>
+        </aside>
+
+      </li>
+
+      <li class="bg-white">
         <section>
           <img src="slides/bio/img/scott-davis-bio.png"
                alt="Scott Davis' Biography"

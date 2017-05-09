@@ -39,6 +39,10 @@ iframe{
   height: 100vh;
 }
 
+img{
+  max-width: 100%;
+}
+
 p{
   width: 75%;
   text-align: center;
@@ -125,6 +129,10 @@ ul > li{
 .bg-white{
   color: black;
   background-color: white;
+}
+
+.bg-white li{
+  color: black;
 }
 
 .full-height{

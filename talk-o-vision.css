@@ -39,6 +39,10 @@ iframe{
   height: 100vh;
 }
 
+img{
+  max-width: 100%;
+}
+
 p{
   width: 75%;
   text-align: center;
