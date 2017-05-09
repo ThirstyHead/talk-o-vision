@@ -41,6 +41,11 @@
         text-align: left;
       }
 
+      .slide-with-notes code{
+        font-size: 0.75rem;
+      }
+
+
     </style>
   </head>
 
@@ -123,13 +128,20 @@
       </li>
 
       <li>
-        <h2>Here's a code example</h2>
-        <pre><code>
+        <section>
+          <h2>Here's a code example</h2>
+          <pre><code>
 let message = "JavaScript is cool!";
 String.prototype.shout = function(){
   return this.toUpperCase();
 }
-        </code></pre>
+console.log(message.shout());
+          </code></pre>
+        </section>
+
+        <aside>
+          <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+        </aside>
       </li>
 
       <li>
