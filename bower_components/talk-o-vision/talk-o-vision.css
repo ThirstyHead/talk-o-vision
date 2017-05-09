@@ -185,6 +185,13 @@ ul > li{
   height: 100vh;
 }
 
+.slide ol{
+  width: 75%;
+  text-align: left;
+  display: inline-block;
+}
+
+
 .slide-img{
   max-width: 100%;
 }
