@@ -14,9 +14,16 @@
         background-size: contain;
       }
 
-      input{
-        font-size: 2em;
+
+      .bg-white code{
+        background-color: black;
+        color: white;
       }
+
+      .bg-white .highlight{
+        color: red;
+      }
+
 
       .slide-with-notes{
         display: flex;
@@ -74,7 +81,7 @@
         </section>
 
         <aside>
-          <p>Hi! If you can see me, you are viewing the notes.</p>
+          <p>If you can see me, you are viewing the notes.</p>
           <p>To toggle notes on / off, press <span class="highlight">n</span>.</p>
         </aside>
 
@@ -143,6 +150,27 @@ console.log(message.shout());
           <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
         </aside>
       </li>
+
+      <li class="bg-white">
+        <section>
+          <h2>Here's a code example</h2>
+          <pre><code>
+let message = "JavaScript is cool!";
+String.prototype.shout = function(){
+  return this.toUpperCase();
+}
+console.log(message.shout());
+          </code></pre>
+        </section>
+
+        <aside>
+          <p>If you'd like to invert the color of the slide, type <span class="highlight">&lt;li class="bg-white"&gt;</span></p>
+
+          <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+        </aside>
+      </li>
+
+
 
       <li>
         <h2>Here's an image</h2>
