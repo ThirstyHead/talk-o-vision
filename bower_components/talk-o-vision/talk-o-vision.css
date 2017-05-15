@@ -32,6 +32,7 @@ h1 + img{
 
 h2 + img{
   max-height: 75%;
+  padding: 0.5rem;
 }
 
 iframe{
