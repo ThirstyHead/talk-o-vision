@@ -29,9 +29,18 @@ function numberSlides(){
   * Adds a "slide" css style to each slide
   */
 function augmentSlides(){
+  let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
+  if(!showNotes){
+    showNotes = false;
+    window.localStorage.setItem('showNotes', showNotes);
+  }
+
   let slides = document.querySelectorAll(".slideshow > li");
   for(let i=0; i<slides.length; i++){
     slides[i].classList.add("slide");
+    if(showNotes && slides[i].querySelectorAll("aside").length > 0){
+      slides[i].classList.toggle("slide-with-notes");
+    }
   }
 }
 
@@ -72,6 +81,13 @@ function keyHandler(e){
     case 70: // f
       e.preventDefault();
       fullscreen();
+      break;
+
+    case 78: // n
+      //toggle showNotes
+      let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
+      window.localStorage.setItem('showNotes', !showNotes);
+      augmentSlides();
       break;
   }
 }

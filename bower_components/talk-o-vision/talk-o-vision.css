@@ -19,6 +19,7 @@ code{
   background-color: white;
   color: black;
   font-family: monospace;
+  overflow: scroll;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -31,12 +32,17 @@ h1 + img{
 
 h2 + img{
   max-height: 75%;
+  padding: 0.5rem;
 }
 
 iframe{
   border: none;
   width: 100vw;
   height: 100vh;
+}
+
+img{
+  max-width: 100%;
 }
 
 p{
@@ -127,6 +133,10 @@ ul > li{
   background-color: white;
 }
 
+.bg-white li{
+  color: black;
+}
+
 .full-height{
   height: 100vh;
   /*width: 100vw;*/
@@ -176,6 +186,22 @@ ul > li{
   /*width: 100vw;*/
   height: 100vh;
 }
+
+.slide ol{
+  width: 75%;
+  text-align: left;
+  display: inline-block;
+}
+
+.slide pre{
+  width: 100%;
+  max-width: 100%;
+}
+
+.slide code{
+  max-width: 100%;
+}
+
 
 .slide-img{
   max-width: 100%;
