@@ -38,7 +38,7 @@ function augmentSlides(){
   let slides = document.querySelectorAll(".slideshow > li");
   for(let i=0; i<slides.length; i++){
     slides[i].classList.add("slide");
-    if(showNotes && slides[i].querySelectorAll("aside").length > 0){
+    if(showNotes && slides[i].querySelectorAll("figcaption").length > 0){
       slides[i].classList.toggle("slide-with-notes");
     }
   }
