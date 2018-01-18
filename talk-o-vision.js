@@ -10,36 +10,30 @@ function slideshowInit(){
 }
 
 
+/**
+  * Represents the slide deck
+  */
 class Slides{
   constructor(){
-    this.list = this.all;
-    this.numberSlides();
+    this.list = document.querySelectorAll(".slideshow > section");
+    this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
-  }
-
-  /**
-    * returns an array of slides
-    */
-  get all(){
-    let all = document.querySelectorAll(".slideshow > section");
-    return all;
   }
 
   /**
     * returns the current slide number
     */
   get current(){
-    let currentSlideNumber = window.location.hash.replace("#", "") * 1 || 1;
-    return currentSlideNumber;
+    return window.location.hash.replace("#", "") * 1 || 1;
   }
 
   /**
     * Adds an "id" attribute to each slide containing the slide number.
-    * This enables hash / fragment navigation (e.g. http://foo.com/#12).
+    * This enables hash fragment navigation (e.g. http://foo.com/#12).
     */
-  numberSlides(){
-    for(let i=0; i<this.all.length; i++){
-      this.all[i].id = `${i + 1}`;
+  addNumberToSlides(){
+    for(let i=0; i<this.list.length; i++){
+      this.list[i].id = `${i + 1}`;
     }
   }
 
@@ -59,9 +53,8 @@ class Slides{
     */
   next(){
     let next = this.current + 1;
-    let slideCount = this.all.length;
-    if(next >= slideCount){
-      next = slideCount;
+    if(next >= this.list.length){
+      next = this.list.length;
     }
     window.location.hash = next;
   }
