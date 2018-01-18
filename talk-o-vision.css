@@ -8,7 +8,6 @@ html, body{
 }
 
 code{
-  width: 75%;
   text-align: left;
   display: inline-block;
   padding: 0.5rem;
@@ -16,6 +15,13 @@ code{
   color: black;
   font-family: monospace;
   overflow: scroll;
+}
+
+figure{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 figcaption{
@@ -27,15 +33,18 @@ h1, h2, h3, h4, h5, h6{
 }
 
 img{
+  /* display: block; */
+  /* max-width: 50%; */
   /* max-width: 100%; */
+  /* max-height: 100%; */
   /* object-fit: contain; */
-  object-fit: scale-down;
+  /* object-fit: scale-down; */
 }
 
 p{
   width: 75%;
   text-align: center;
-  padding-left: 12%;
+  /* padding-left: 12%; */
 }
 
 section{
@@ -173,6 +182,5 @@ NOTE: This is typically included in a <style> in the index.html file,
 }
 
 .slide-width{
-  height: auto;
   max-width: 100%;
 }
