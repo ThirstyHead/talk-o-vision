@@ -7,55 +7,18 @@ window.addEventListener('load', slideshowInit);
   */
 function slideshowInit(){
   numberSlides();
-  augmentSlides();
-  // augmentExternalSlides();
-  // need to revisit iframe functionality later
   window.addEventListener('keydown', keyHandler);
 }
 
 /**
   * Adds an "id" attribute to each slide containing the slide number.
-  * This enables hash / fragment navigation (http://foo.com/#12).
+  * This enables hash / fragment navigation (e.g. http://foo.com/#12).
   */
 function numberSlides(){
-  let slides = document.querySelectorAll(".slideshow > li");
-  window.sessionStorage.slideCount = slides.length;
-  for(let i=0; i<slides.length; i++){
-    slides[i].id = `${i + 1}`;
-  }
-}
-
-/**
-  * Adds a "slide" css style to each slide
-  */
-function augmentSlides(){
-  let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
-  if(!showNotes){
-    showNotes = false;
-    window.localStorage.setItem('showNotes', showNotes);
-  }
-
-  let slides = document.querySelectorAll(".slideshow > li");
-  for(let i=0; i<slides.length; i++){
-    slides[i].classList.add("slide");
-    if(showNotes && slides[i].querySelectorAll("figcaption").length > 0){
-      slides[i].classList.toggle("slide-with-notes");
-    }
-  }
-}
-
-/**
-  * Adds slideshow-specific styling to external slides.
-  */
-function augmentExternalSlides(){
-  let cssLink = document.createElement("link");
-  cssLink.href = "../../bower_components/talk-o-vision/talk-o-vision.css";
-  cssLink.rel = "stylesheet";
-  cssLink.type = "text/css";
-
-  let slides = document.querySelectorAll(".slideshow li iframe");
-  for(let i=0; i<slides.length; i++){
-    slides[i].contentDocument.head.appendChild(cssLink);
+  let s = new Slides();
+  let slideList = s.all;
+  for(let i=0; i<slideList.length; i++){
+    slideList[i].id = `${i + 1}`;
   }
 }
 
@@ -85,21 +48,35 @@ function keyHandler(e){
 
     case 78: // n
       //toggle showNotes
-      let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
-      window.localStorage.setItem('showNotes', !showNotes);
-      augmentSlides();
+      // let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
+      // window.localStorage.setItem('showNotes', !showNotes);
       break;
   }
 }
+
+
+/**
+  * returns the current slide number
+  */
+function currentSlideNumber(){
+  let currentSlideNumber = window.location.hash.replace("#", "") * 1 || 1;
+  return currentSlideNumber;
+}
+
+
+
+
+
 
 /**
   * Advances slideshow to next slide
   */
 function nextSlide(){
-  let current = window.location.hash.replace("#", "") * 1;
+  let current = currentSlideNumber();
   let next = current + 1;
-  if(next >= window.sessionStorage.slideCount){
-    next = window.sessionStorage.slideCount;
+  let slideCount = new Slides().list.length;
+  if(next >= slideCount){
+    next = slideCount;
   }
   window.location.hash = next;
 }
@@ -108,7 +85,7 @@ function nextSlide(){
   * Moves slideshow to previous slide
   */
 function previousSlide(){
-  let current = window.location.hash.replace("#", "") * 1;
+  let current = currentSlideNumber();
   let previous = current - 1;
   if(previous <= 1){
     previous = 1;
@@ -129,5 +106,20 @@ function fullscreen(){
 
   if (requestFullscreen) {
     requestFullscreen.apply(html);
+  }
+}
+
+
+class Slides{
+  constructor(){
+    this.list = this.all;
+  }
+
+  /**
+    * returns an array of slides
+    */
+  get all(){
+    let all = document.querySelectorAll(".slideshow > section");
+    return all;
   }
 }
