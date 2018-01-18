@@ -11,12 +11,12 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="talk-o-vision.css">
     <style>
-      /* .title-slide{
+      .title-slide{
         background: url('slides/title/img/BlooShooes.jpg') no-repeat center center;
         background-size: contain;
       }
 
-
+/*
       .bg-white code{
         background-color: black;
         color: white;
@@ -62,7 +62,7 @@
     <main class="slideshow">
 
       <section class="title-slide">
-        <h2>Talk-o-Vision</h2>
+        <h2 hidden aria-hidden="false">Talk-o-Vision</h2>
         <figure>
           <div class="banner">
             <div class="banner-title">
@@ -93,7 +93,7 @@
       </section>
 
       <section class="bg-white">
-        <h2>Biography</h2>
+        <h2 hidden aria-hidden="false">Biography</h2>
         <figure>
           <img src="slides/bio/img/scott-davis-bio.png"
                alt="Scott Davis' Biography"
@@ -117,8 +117,6 @@
             <li>and this</li>
             <li>and this other thing, too</li>
           </ul>
-
-          <br><br>
 
           <ol>
             <li>We'll do this first</li>
@@ -174,7 +172,8 @@ console.log(message.shout());
         <figure>
           <img src="slides/shoes/img/shoes.jpg"
                alt="shoes"
-               data-original="https://morguefile.com/p/23395">
+               data-original-url="https://morguefile.com/p/23395"
+               class="slide-width">
 
           <figcaption>
            <p>You can add an image by using the <span class="highlight">&lt;img&gt;</span> element. Don't forget to add an alternate text description using the <span class="highlight">alt</span> attribute -- your sight-impaired audience using a screen reader will appreciate it.</p>
