@@ -20,8 +20,8 @@ class Slides{
     window.addEventListener('keydown', evt => this.keyHandler(evt));
   }
 
-  /**
-    * returns the current slide number
+  /** 
+    * @returns the current slide number
     */
   get current(){
     return window.location.hash.replace("#", "") * 1 || 1;

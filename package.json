@@ -4,7 +4,8 @@
   "description": "An HTML-based slideshow framework",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsdoc": "./node_modules/.bin/jsdoc talk-o-vision.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/ThirstyHead/talk-o-vision/issues"
   },
-  "homepage": "https://github.com/ThirstyHead/talk-o-vision#readme"
+  "homepage": "https://github.com/ThirstyHead/talk-o-vision#readme",
+  "devDependencies": {
+    "jsdoc": "~3.5.5"
+  }
 }
