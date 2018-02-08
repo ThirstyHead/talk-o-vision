@@ -50,6 +50,16 @@ figcaption{
   display: none;
 }
 
+h2 + figure{
+  height: 70vh;
+}
+
+figure img{
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
 h2{
   font-size: 3em;
 }
@@ -140,6 +150,10 @@ NOTE: This is typically included in a <style> in the index.html file,
 
 .highlight{
   color: var(--theme-highlight-color);
+}
+
+.full-height{
+  height: 99vh;
 }
 
 .theme-invert{

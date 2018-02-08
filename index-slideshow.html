@@ -51,7 +51,7 @@
 
       <section class="theme-invert">
         <h2 hidden aria-hidden="false">Biography</h2>
-        <figure>
+        <figure class="full-height">
           <img src="slides/bio/img/scott-davis-bio.png"
                alt="Scott Davis' Biography">
 
@@ -120,9 +120,47 @@ console.log(message.shout());
       <section>
         <h2>Highlighting Text</h2>
         <figure>
-          <p>To <span class="highlight">highlight</span> text, wrap the text in  &lt;span class="highlight"&gt;.</p>
+          <p>To highlight text, wrap the text in <span class="highlight">&lt;span class="highlight"&gt;</span>.</p>
 
           <p>Use this <span class="highlight">sparingly</span>, of course...</p>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Header + Image</h2>
+        <figure>
+          <img src="slides/shoes/img/shoes.jpg"
+               alt="shoes"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+           <p>You can add an image by using the <span class="highlight">&lt;img&gt;</span> element. Don't forget to add an alternate text description using the <span class="highlight">alt</span> attribute -- your sight-impaired audience using a screen reader will appreciate it.</p>
+
+           <p>I recommend using 1024x768 sized images, but talk-o-vision does its best to right-size the images.</p>
+
+           <p>I recommend citing the original source of the image with a <span class="highlight">data-original</span> attribute.</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Full-height Images</h2>
+        <figure>
+          <p>The next slide demonstrates a full-height image on a slide without a header.</p>
+
+          <p>Use <span class="highlight">&lt;figure class="full-height"&gt;</span> to ensure the figure fills the entire screen.</p>
+        </figure>
+      </section>
+
+      <section>
+        <h2 hidden aria-hidden="false">Image without Header</h2>
+        <figure class="full-height">
+          <img src="slides/shoes/img/shoes.jpg"
+               alt="shoes"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+          </figcaption>
         </figure>
       </section>
 
@@ -184,39 +222,10 @@ console.log(message.shout());
         </figure>
       </section>
 
-      <!-- <section>
-        <h2>Here's an image</h2>
-        <figure>
-          <img src="slides/shoes/img/shoes.jpg"
-               alt="shoes"
-               data-original-url="https://morguefile.com/p/23395"
-               >
-
-          <figcaption>
-           <p>You can add an image by using the <span class="highlight">&lt;img&gt;</span> element. Don't forget to add an alternate text description using the <span class="highlight">alt</span> attribute -- your sight-impaired audience using a screen reader will appreciate it.</p>
-
-           <p>I recommend using 1024x768 sized images, but talk-o-vision does its best to right-size the images.</p>
-
-           <p>I recommend citing the original source of the image with a <span class="highlight">data-original</span> attribute.</p>
-          </figcaption>
-        </figure>
-      </section> -->
-
-<!--
-      <section class="bg-white">
-        <h2>Here's a white background</h2>
-        <figure>
-          <img src="slides/shoes/img/shoes2.jpg"
-               alt="another pair of shoes"
-               data-original="https://morguefile.com/p/23398">
-        </figure>
-      </section>
-    -->
-
       <section class="theme-invert">
         <h2>Highlighting Text</h2>
         <figure>
-          <p>To <span class="highlight">highlight</span> text, wrap the text in  &lt;span class="highlight"&gt;.</p>
+          <p>To highlight text, wrap the text in <span class="highlight">&lt;span class="highlight"&gt;</span>.</p>
 
           <p>Use this <span class="highlight">sparingly</span>, of course...</p>
         </figure>
