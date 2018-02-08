@@ -54,6 +54,7 @@ p{
   width: 80%;
   padding-left: 20%;
 }
+
 section{
   height: 100vh;
   page-break-after: always;
@@ -137,22 +138,21 @@ NOTE: This is typically included in a <style> in the index.html file,
   color: var(--theme-highlight-color);
 }
 
-.theme-white{
-  /* NOTE: background, foreground colors are inverted */
+.theme-invert{
   background-color: var(--theme-foreground-color);
   color: var(--theme-background-color);
 }
 
-.theme-white li{
+.theme-invert li{
   color: var(--theme-background-color);
 }
 
-.theme-white code{
+.theme-invert code{
   background-color: var(--theme-background-color);
   color: var(--theme-foreground-color);
 }
 
-.theme-white .highlight{
+.theme-invert .highlight{
   background-color: var(--theme-highlight-color);
   color: var(--theme-background-color);
 }
