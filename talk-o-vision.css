@@ -18,14 +18,16 @@ code{
 }
 
 figure{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 figcaption{
-  display: none;
+  /* display: none; */
+  float: right;
+  width: 50%;
 }
 
 h1, h2, h3, h4, h5, h6{
