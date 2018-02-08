@@ -1,56 +1,57 @@
-html, body{
-  background-color: black;
-  color: white;
+/**************************
+  Box-sizing
+  https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+***************************/
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**************************
+  Theme
+***************************/
+:root{
+  --theme-background-color: black;
+  --theme-foreground-color: white;
+  --theme-highlight-color: yellow;
+  --theme-font-size: 1.75em;
+}
+
+/**************************
+  Elements
+***************************/
+body{
+  background-color: var(--theme-background-color);
+  color: var(--theme-foreground-color);
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 1.75em;
+  font-size: var(--theme-font-size);
 }
 
 code{
-  text-align: left;
+  /* NOTE: background, foreground colors are inverted */
+  background-color: var(--theme-foreground-color);
+  color: var(--theme-background-color);
   display: inline-block;
   padding: 0.5rem;
-  background-color: white;
-  color: black;
   font-family: monospace;
+  text-align: left;
   overflow: scroll;
-}
-
-figure{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-}
-
-figcaption{
-  /* display: none; */
-  float: right;
-  width: 50%;
 }
 
 h1, h2, h3, h4, h5, h6{
   padding: 1rem 0 0 0;
 }
 
-img{
-  /* display: block; */
-  /* max-width: 50%; */
-  /* max-width: 100%; */
-  /* max-height: 100%; */
-  /* object-fit: contain; */
-  /* object-fit: scale-down; */
-}
-
 p{
   width: 75%;
-  text-align: center;
-  /* padding-left: 12%; */
 }
 
 section{
-  width: 100vw;
   height: 100vh;
   page-break-after: always;
 }
@@ -64,31 +65,26 @@ table{
 
 table th, table td{
     text-align: left;
-    padding: 0.2em 0.5em 0.2em 0.5em;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 ul, ol{
   width: 75%;
   text-align: left;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 ul > li{
   list-style: disc;
-  color: white;
+  color: var(--theme-foreground-color);
 }
 
 
-/*****************
-  Custom styles
-*****************/
-.slideshow{
-  margin: 0;
-  padding: 0;
-}
+/**************************
+  Custom Styles
+***************************/
 
-/****** title slide ******/
-/*************************
+/****** title slide ******
 NOTE: This is typically included in a <style> in the index.html file,
       since it is a part of the slideshow rather than a generic
       element.
@@ -98,91 +94,61 @@ NOTE: This is typically included in a <style> in the index.html file,
 }
 **************************/
 .banner {
-  background-color: black;
+  background-color: var(--theme-background-color);
   opacity: 0.7;
   width: 100%;
 }
 
 .banner-title {
-  font-size: 1em;
   text-align: left;
-  padding: 0.5em;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding: 0.5rem 10% 0.5rem 10%;
+  margin: 0;
 }
 
 .banner-title h1 {
-  font-size: 1.5em;
-  text-transform: none;
-  font-weight: bold;
+  font-size: 3em;
   margin: 0;
 }
 
 .banner-title h2 {
-  font-size: 1em;
-  text-transform: none;
+  font-size: 1.5em;
   font-style: italic;
   margin: 0;
 }
 
 .banner-bio {
-  font-size: 0.5em;
   text-align: right;
-  padding-right: 20%;
-  padding-bottom: 1em;
+  padding-right: 10%;
+  padding-bottom: 1rem;
 }
 
 .banner-bio a{
-  color: white;
+  color: var(--theme-foreground-color);
 }
 /****** title slide ******/
 
-/****** section title slide ******/
+
 .section-title{
   position: relative;
   top: 50%;
   transform: perspective(1px) translateY(-50%);
 }
-/****** section title slide ******/
 
-
-
-.bg-white{
-  color: black;
-  background-color: white;
+.theme-white{
+  /* NOTE: background, foreground colors are inverted */
+  background-color: var(--theme-foreground-color);
+  color: var(--theme-background-color);
 }
 
-.bg-white li{
-  color: black;
+.theme-white li{
+  color: var(--theme-background-color);
 }
 
-.bg-white code{
-  background-color: black;
-  color: white;
-}
-
-.full-height{
-  height: 100vh;
-}
-
-.full-width{
-  width: 100vw;
+.theme-white code{
+  background-color: var(--theme-background-color);
+  color: var(--theme-foreground-color);
 }
 
 .highlight{
-  color: yellow;
-}
-
-.side-by-side{
-  float: left;
-  width: 45%;
-  padding-left: 2.5%;
-}
-
-.slide-height{
-  max-height: 100%;
-}
-
-.slide-width{
-  max-width: 100%;
+  color: var(--theme-highlight-color);
 }
