@@ -50,27 +50,32 @@ h2{
   font-size: 3em;
 }
 
+p{
+  width: 80%;
+  padding-left: 20%;
+}
 section{
   height: 100vh;
   page-break-after: always;
 }
 
 table{
-    margin: auto;
-    padding-left: 20%;
-    border-collapse: collapse;
-    border-spacing: 0;
+  width: 75%;
+  padding-left: 25%;
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 table th, table td{
-    text-align: left;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  text-align: left;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 ul, ol{
   width: 75%;
+  padding-left: 25%;
   text-align: left;
-  /* display: inline-block; */
 }
 
 ul > li{
@@ -128,6 +133,10 @@ NOTE: This is typically included in a <style> in the index.html file,
   transform: perspective(1px) translateY(-50%);
 }
 
+.highlight{
+  color: var(--theme-highlight-color);
+}
+
 .theme-white{
   /* NOTE: background, foreground colors are inverted */
   background-color: var(--theme-foreground-color);
@@ -143,6 +152,7 @@ NOTE: This is typically included in a <style> in the index.html file,
   color: var(--theme-foreground-color);
 }
 
-.highlight{
-  color: var(--theme-highlight-color);
+.theme-white .highlight{
+  background-color: var(--theme-highlight-color);
+  color: var(--theme-background-color);
 }
