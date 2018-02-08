@@ -46,6 +46,10 @@ code{
   overflow: scroll;
 }
 
+figcaption{
+  display: none;
+}
+
 h2{
   font-size: 3em;
 }
@@ -128,7 +132,7 @@ NOTE: This is typically included in a <style> in the index.html file,
 /****** title slide ******/
 
 
-.section-title{
+.section-title h2{
   position: relative;
   top: 50%;
   transform: perspective(1px) translateY(-50%);

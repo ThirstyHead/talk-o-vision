@@ -65,8 +65,18 @@
         </figure>
       </section>
 
+
+
+
+
+
+
+      <section class="section-title">
+        <h2>Basic slide examples</h2>
+      </section>
+
       <section>
-        <h2>Outline</h2>
+        <h2>Text Slide</h2>
         <figure>
           <ul>
             <li>We'll cover this</li>
@@ -80,16 +90,16 @@
             <li>and finally, this other thing, too</li>
           </ol>
 
-          <figcaption>
-            <p>Bulleted lists are exactly what you'd expect 'em to be as a web developer -- a simple <span class="highlight">&lt;ul&gt;</span> with some <span class="highlight">&lt;li&gt;</span>s.</p>
+          <p>You can display information using <span class="highlight">&lt;ul&gt;</span> for bulleted ("unordered") lists, <span class="highlight">&lt;ol&gt;</span> for ordered lists, and <span class="highlight">&lt;p&gt;</span> for plain-old paragraphs.</p>
 
-            <p>Of course, ordered lists (<span class="highlight">&lt;ol&gt;</span>) are supported as well if you'd like to see numbers instead of bullets.</p>
+          <figcaption>
+            <p>Notes describing a text slide</p>
           </figcaption>
         </figure>
       </section>
 
       <section>
-        <h2>Here's a code example</h2>
+        <h2>Code Example</h2>
         <figure>
           <pre><code>
 let message = "JavaScript is cool!";
@@ -99,8 +109,58 @@ String.prototype.shout = function(){
 console.log(message.shout());
           </code></pre>
 
+          <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+
           <figcaption>
-            <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+            <p>Notes on code slides</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Highlighting Text</h2>
+        <figure>
+          <p>To <span class="highlight">highlight</span> text, wrap the text in  &lt;span class="highlight"&gt;.</p>
+
+          <p>Use this <span class="highlight">sparingly</span>, of course...</p>
+        </figure>
+      </section>
+
+
+
+
+
+
+      <section class="section-title">
+        <h2><span class="highlight">Inverted</span> slide examples</h2>
+      </section>
+
+      <section class="theme-invert">
+        <h2>How to invert slide colors</h2>
+        <figure>
+          <p>Add <span class="highlight">class="theme-invert"</span> to any slide to invert (reverse) the colors.</p>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Text Slide</h2>
+        <figure>
+          <ul>
+            <li>We'll cover this</li>
+            <li>and this</li>
+            <li>and this other thing, too</li>
+          </ul>
+
+          <ol>
+            <li>We'll do this first</li>
+            <li>next, this</li>
+            <li>and finally, this other thing, too</li>
+          </ol>
+
+          <p>You can display information using <span class="highlight">&lt;ul&gt;</span> for bulleted ("unordered") lists, <span class="highlight">&lt;ol&gt;</span> for ordered lists, and <span class="highlight">&lt;p&gt;</span> for plain-old paragraphs.</p>
+
+          <figcaption>
+            <p>Notes describing a text slide</p>
           </figcaption>
         </figure>
       </section>
@@ -115,10 +175,11 @@ String.prototype.shout = function(){
 }
 console.log(message.shout());
           </code></pre>
-          <figcaption>
-            <p>If you'd like to invert the color of the slide, type <span class="highlight">&lt;li class="bg-white"&gt;</span></p>
 
-            <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+          <p>To display a code snippet, wrap it in a set of <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span> elements.</p>
+
+          <figcaption>
+            <p>Notes on code slides</p>
           </figcaption>
         </figure>
       </section>
@@ -152,9 +213,11 @@ console.log(message.shout());
       </section>
     -->
 
-      <section>
-        <h2>Here's an example with <span class="highlight">highlighting</span></h2>
+      <section class="theme-invert">
+        <h2>Highlighting Text</h2>
         <figure>
+          <p>To <span class="highlight">highlight</span> text, wrap the text in  &lt;span class="highlight"&gt;.</p>
+
           <p>Use this <span class="highlight">sparingly</span>, of course...</p>
         </figure>
       </section>
