@@ -20,7 +20,7 @@ html {
   --theme-background-color: black;
   --theme-foreground-color: white;
   --theme-highlight-color: yellow;
-  --theme-font-size: 1.75em;
+  --theme-font-size: 2rem;
 }
 
 /**************************
@@ -46,12 +46,8 @@ code{
   overflow: scroll;
 }
 
-h1, h2, h3, h4, h5, h6{
-  padding: 1rem 0 0 0;
-}
-
-p{
-  width: 75%;
+h2{
+  font-size: 3em;
 }
 
 section{
