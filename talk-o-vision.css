@@ -93,7 +93,7 @@ ul, ol{
   text-align: left;
 }
 
-ul > li{
+ul li{
   list-style: disc;
   color: var(--theme-foreground-color);
 }
