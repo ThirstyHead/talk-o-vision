@@ -177,6 +177,23 @@ NOTE: This is typically included in a <style> in the index.html file,
   height: 99vh;
 }
 
+.side-by-side{
+  display: flex;
+  width: 75%;
+  padding-left: 25%;
+}
+
+.side-by-side div{
+  flex-grow: 1;
+  margin: 1em;
+}
+
+.side-by-side div img{
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
 .theme-invert{
   background-color: var(--theme-foreground-color);
   color: var(--theme-background-color);
