@@ -21,6 +21,7 @@ class Slides{
   constructor(){
     this.list = document.querySelectorAll(".slideshow > section");
     this.notesWindow = undefined;
+    this.notesOn = false;
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
@@ -36,22 +37,6 @@ class Slides{
 
 
   /**
-    * @returns notesOn
-    */
-  get notesOn(){
-    return window.localStorage.getItem('notesOn') === 'true';
-  }
-
-
-  /**
-    * @param {boolean} value
-    */
-  set notesOn(value){
-    window.localStorage.setItem('notesOn', (value === true) );
-  }
-
-
-  /**
     * Toggles speaker notes
     */
   toggleNotes(){
@@ -61,7 +46,7 @@ class Slides{
 
 
   /**
-    * Display speaker notes, based on notesOn value
+    * Displays speaker notes
     */
   displayNotes(){
     if(this.notesOn){
@@ -74,7 +59,7 @@ class Slides{
 
 
   /**
-    * @returns select data from the current slide
+    * @returns slide information as JSON for a given slideId
     */
   slideInfo(slideId = this.currentId){
     let rawSlide = document.getElementById(slideId);
@@ -109,6 +94,14 @@ class Slides{
 
 
   /**
+    * Displays a slide based on slideId
+    */
+  goto(slideId = 1){
+    window.location.hash = slideId;
+  }
+
+
+  /**
     * Moves slideshow to previous slide
     */
   previous(){
@@ -116,7 +109,7 @@ class Slides{
     if(previous <= 1){
       previous = 1;
     }
-    window.location.hash = previous;
+    this.goto(previous);
   }
 
 
@@ -128,7 +121,7 @@ class Slides{
     if(next >= this.list.length){
       next = this.list.length;
     }
-    window.location.hash = next;
+    this.goto(next);
   }
 
 
@@ -171,6 +164,11 @@ class Slides{
       case 70: // f
         e.preventDefault();
         this.fullscreen();
+        break;
+
+      case 72: // h
+        e.preventDefault();
+        this.goto(1);
         break;
 
       case 78: // n
