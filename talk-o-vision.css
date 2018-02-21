@@ -221,6 +221,10 @@ NOTE: This is typically included in a <style> in the index.html file,
   color: var(--theme-background-color);
 }
 
+.theme-invert td a:hover, .theme-invert th a:hover{
+  color: var(--theme-link-hover-color);
+}
+
 .theme-invert th{
   border-bottom: 2px solid var(--theme-background-color);
 }
