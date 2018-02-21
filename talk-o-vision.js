@@ -21,6 +21,7 @@ class Slides{
   constructor(){
     this.list = document.querySelectorAll(".slideshow > section");
     this.notesWindow = undefined;
+    this.notesOn = false;
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
@@ -32,22 +33,6 @@ class Slides{
     */
   get currentId(){
     return window.location.hash.replace("#", "") * 1 || 1;
-  }
-
-
-  /**
-    * @returns notesOn
-    */
-  get notesOn(){
-    return window.localStorage.getItem('notesOn') === 'true';
-  }
-
-
-  /**
-    * @param {boolean} value
-    */
-  set notesOn(value){
-    window.localStorage.setItem('notesOn', (value === true) );
   }
 
 
