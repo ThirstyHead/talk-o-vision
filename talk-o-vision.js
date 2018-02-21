@@ -14,6 +14,10 @@ function slideshowInit(){
   * Represents the slide deck
   */
 class Slides{
+  /**
+    * Creates a new Slides object
+    * @constructor
+    */
   constructor(){
     this.list = document.querySelectorAll(".slideshow > section");
     this.addNumberToSlides();
@@ -27,6 +31,31 @@ class Slides{
   get currentId(){
     return window.location.hash.replace("#", "") * 1 || 1;
   }
+
+  /**
+    * Are speaker notes being displayed?
+    * @returns showNotes
+    */
+  get showNotes(){
+    return window.localStorage.getItem('showNotes') === 'true';
+  }
+
+  /**
+    * @param {boolean} value
+    */
+  set showNotes(value){
+    window.localStorage.setItem('showNotes', (value === true) );
+  }
+
+
+  /**
+    * Toggles the state of showNotes
+    */
+  toggleNotes(){
+    window.localStorage.setItem('showNotes', !(this.showNotes));
+  }
+
+
 
   /**
     * @returns select data from the current slide
@@ -123,9 +152,7 @@ class Slides{
         break;
 
       case 78: // n
-        //toggle showNotes
-        // let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
-        // window.localStorage.setItem('showNotes', !showNotes);
+        this.toggleNotes();
         break;
     }
   }
