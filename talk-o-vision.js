@@ -166,6 +166,11 @@ class Slides{
         this.fullscreen();
         break;
 
+      case 72: // h
+        e.preventDefault();
+        this.goto(1);
+        break;
+
       case 78: // n
         this.toggleNotes();
         break;

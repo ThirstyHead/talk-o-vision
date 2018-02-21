@@ -20,6 +20,7 @@ html {
   --theme-background-color: black;
   --theme-foreground-color: white;
   --theme-highlight-color: yellow;
+  --theme-link-hover-color: red;
   --theme-font-size: 2rem;
 }
 
@@ -96,6 +97,9 @@ td a:after, th a:after{
   content: " \1F517";
 }
 
+td a:hover, th a:hover{
+  color: var(--theme-link-hover-color);
+}
 
 th{
   border-bottom: 2px solid var(--theme-foreground-color);
