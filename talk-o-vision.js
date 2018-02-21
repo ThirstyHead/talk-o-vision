@@ -26,6 +26,7 @@ class Slides{
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
   }
 
+
   /**
     * @returns the current slide number
     */
@@ -33,50 +34,43 @@ class Slides{
     return window.location.hash.replace("#", "") * 1 || 1;
   }
 
+
   /**
-    * Are speaker notes being displayed?
-    * @returns showNotes
+    * @returns notesOn
     */
-  get showNotes(){
-    return window.localStorage.getItem('showNotes') === 'true';
+  get notesOn(){
+    return window.localStorage.getItem('notesOn') === 'true';
   }
+
 
   /**
     * @param {boolean} value
     */
-  set showNotes(value){
-    window.localStorage.setItem('showNotes', (value === true) );
+  set notesOn(value){
+    window.localStorage.setItem('notesOn', (value === true) );
   }
 
 
   /**
-    * Toggles the display of the Speaker_Notes window
+    * Toggles speaker notes
     */
   toggleNotes(){
-    window.localStorage.setItem('showNotes', !(this.showNotes));
-
-    if(this.showNotes){
-      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
-      this.notesWindow = window.open("", "Speaker_Notes", windowFeatures);
-
-      let html = `<html>
-        <head>
-          <title>This is my title</title>
-        </head>
-        <body>
-           <h1>This is my body</h1>
-        </body>
-      </html>`;
-
-      let doc = this.notesWindow.document;
-      doc.open();
-      doc.write(html);
-      doc.close();
-    }else{
-      this.notesWindow.close();
-    }
+    this.notesOn = !this.notesOn;
+    this.displayNotes();
   }
 
+
+  /**
+    * Display speaker notes, based on notesOn value
+    */
+  displayNotes(){
+    if(this.notesOn){
+      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
+      this.notesWindow = window.open("notes.html", "Speaker_Notes", windowFeatures);
+    }else{
+      this.notesWindow && this.notesWindow.close();
+    }
+  }
 
 
   /**
@@ -109,7 +103,10 @@ class Slides{
     for(let i=0; i<this.list.length; i++){
       this.list[i].id = `${i + 1}`;
     }
+
+    window.localStorage.setItem('slideCount', this.list.length);
   }
+
 
   /**
     * Moves slideshow to previous slide
@@ -122,6 +119,7 @@ class Slides{
     window.location.hash = previous;
   }
 
+
   /**
     * Advances slideshow to next slide
     */
@@ -132,6 +130,7 @@ class Slides{
     }
     window.location.hash = next;
   }
+
 
   /**
     * Enables fullscreen
@@ -148,6 +147,7 @@ class Slides{
       requestFullscreen.apply(html);
     }
   }
+
 
   /**
     * Enables keyboard shortcuts
@@ -178,6 +178,7 @@ class Slides{
         break;
     }
   }
+
 
   /**
     * Handles event based on slide change
