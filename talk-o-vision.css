@@ -1,236 +1,222 @@
-html, body{
-  background-color: black;
-  color: white;
+/**************************
+  Box-sizing
+  https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+***************************/
+html {
+  box-sizing: border-box;
+  background-color: var(--theme-background-color);
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**************************
+  Theme
+***************************/
+:root{
+  --theme-background-color: black;
+  --theme-foreground-color: white;
+  --theme-highlight-color: yellow;
+  --theme-font-size: 2rem;
+}
+
+/**************************
+  Elements
+***************************/
+body{
+  background-color: var(--theme-background-color);
+  color: var(--theme-foreground-color);
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 1.75em;
-}
-
-aside{
-  display: none;
+  font-size: var(--theme-font-size);
 }
 
 code{
-  width: 75%;
-  text-align: left;
+  /* NOTE: background, foreground colors are inverted */
+  background-color: var(--theme-foreground-color);
+  color: var(--theme-background-color);
   display: inline-block;
   padding: 0.5rem;
-  background-color: white;
-  color: black;
   font-family: monospace;
+  text-align: left;
   overflow: scroll;
 }
 
-h1, h2, h3, h4, h5, h6{
-  padding: 1rem 0 0 0;
+figcaption{
+  display: none;
 }
 
-h1 + img{
-  max-height: 65%;
+h2 + figure{
+  height: 70vh;
 }
 
-h2 + img{
-  max-height: 75%;
-  padding: 0.5rem;
+figure img{
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
 }
 
-iframe{
-  border: none;
-  width: 100vw;
-  height: 100vh;
-}
-
-img{
-  max-width: 100%;
+h2{
+  font-size: 3em;
 }
 
 p{
-  width: 75%;
-  text-align: center;
-  padding-left: 12%;
+  width: 80%;
+  padding-left: 20%;
 }
 
-table th, table td {
-    text-align: left;
-    padding: 0.2em 0.5em 0.2em 0.5em;
-    /*border-bottom: 1px solid;*/
-}
-table {
-    margin: auto;
-    padding-left: 20%;
-    border-collapse: collapse;
-    border-spacing: 0;
+section{
+  height: 100vh;
+  page-break-after: always;
 }
 
-ul{
+table{
   width: 75%;
+  padding-left: 25%;
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th{
   text-align: left;
-  display: inline-block;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
-ul > li{
+td a, th a{
+  color: var(--theme-foreground-color);
+  text-decoration: none;
+}
+
+td a:after, th a:after{
+  content: " \1F517";
+}
+
+
+th{
+  border-bottom: 2px solid var(--theme-foreground-color);
+}
+
+caption{
+  caption-side: bottom;
+  padding: 2em 1em 1em 1em;
+  text-align: right;
+  font-style: italic;
+}
+
+ul, ol{
+  width: 75%;
+  padding-left: 25%;
+  text-align: left;
+}
+
+ul li{
   list-style: disc;
-  color: white;
+  color: var(--theme-foreground-color);
 }
 
 
-/*****************
-  Custom styles
-*****************/
+/**************************
+  Custom Styles
+***************************/
 
-/* title slide */
+/****** title slide ******
+NOTE: This is typically included in a <style> in the index.html file,
+      since it is a part of the slideshow rather than a generic
+      element.
 .title-slide{
-  /*background: url('slides/title/img/cloud-1.jpg') no-repeat center center;*/
+  background: url('slides/title/img/cloud-1.jpg') no-repeat center center;
   background-size: contain;
 }
-
+**************************/
 .banner {
-  background-color: black;
+  background-color: var(--theme-background-color);
   opacity: 0.7;
   width: 100%;
-}
-
-.banner-title {
-  font-size: 1em;
   text-align: left;
-  padding: 0.5em;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding: 0.5em 10% 0.5em 10%;
 }
 
-.banner-title h1 {
-  font-size: 1.5em;
-  text-transform: none;
-  font-weight: bold;
+.banner h1 {
+  font-size: 3em;
   margin: 0;
 }
 
-.banner-title h2 {
-  font-size: 1em;
-  text-transform: none;
+.banner h2 {
+  font-size: 1.5em;
   font-style: italic;
   margin: 0;
 }
 
 .banner-bio {
-  font-size: 0.5em;
   text-align: right;
-  padding-right: 20%;
   padding-bottom: 1em;
 }
 
 .banner-bio a{
-  color: white;
+  color: var(--theme-foreground-color);
 }
-/* title slide */
+/****** title slide ******/
 
 
-
-
-.bg-white{
-  color: black;
-  background-color: white;
-}
-
-.bg-white li{
-  color: black;
-}
-
-.full-height{
-  height: 100vh;
-  /*width: 100vw;*/
-}
-
-.full-width{
-  /*height: 100vh;*/
-  width: 100vw;
-}
-
-.highlight{
-  color: yellow;
-}
-
-.section-title{
+.section-title h2{
   position: relative;
   top: 50%;
   transform: perspective(1px) translateY(-50%);
 }
 
+.highlight{
+  color: var(--theme-highlight-color);
+}
+
+.full-height{
+  height: 99vh;
+}
+
 .side-by-side{
-  float: left;
-  width: 45%;
-  padding-left: 2.5%;
-}
-
-.slideshow{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.slideshow > li{
-  width: 100vw;
-  height: 100vh;
-  page-break-after: always;
-}
-
-.slide{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.slide + img{
-  /* NOTE: setting width misbehaves on Chrome, Firefox */
-  /*width: 100vw;*/
-  height: 100vh;
-}
-
-.slide ol{
+  display: flex;
   width: 75%;
-  text-align: left;
-  display: inline-block;
+  padding-left: 25%;
 }
 
-.slide pre{
-  width: 100%;
-  max-width: 100%;
+.side-by-side div{
+  flex-grow: 1;
+  margin: 1em;
 }
 
-.slide code{
-  max-width: 100%;
+.side-by-side div img{
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
 }
 
-
-.slide-img{
-  max-width: 100%;
+.theme-invert{
+  background-color: var(--theme-foreground-color);
+  color: var(--theme-background-color);
 }
 
-
-
-
-
-
-
-
-/*
-.partial-height{
-  height: 75%;
-  max-height: 75%;
+.theme-invert li{
+  color: var(--theme-background-color);
 }
 
-.half-img{
-  max-width: 75%;
-  margin-top: 1rem;
+.theme-invert code{
+  background-color: var(--theme-background-color);
+  color: var(--theme-foreground-color);
 }
 
-.top-margin{
-  margin-top: 1rem;
+.theme-invert .highlight{
+  background-color: var(--theme-highlight-color);
+  color: var(--theme-background-color);
 }
 
-.sub-title{
-  margin: 0;
-  margin-top: -2rem;
+.theme-invert td a, .theme-invert th a{
+  color: var(--theme-background-color);
 }
-*/
+
+.theme-invert th{
+  border-bottom: 2px solid var(--theme-background-color);
+}
