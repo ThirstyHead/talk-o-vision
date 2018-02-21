@@ -46,7 +46,7 @@ class Slides{
 
 
   /**
-    * Display speaker notes, based on notesOn value
+    * Displays speaker notes
     */
   displayNotes(){
     if(this.notesOn){
@@ -59,7 +59,7 @@ class Slides{
 
 
   /**
-    * @returns select data from the current slide
+    * @returns slide information as JSON for a given slideId
     */
   slideInfo(slideId = this.currentId){
     let rawSlide = document.getElementById(slideId);
@@ -94,6 +94,14 @@ class Slides{
 
 
   /**
+    * Displays a slide based on slideId
+    */
+  goto(slideId = 1){
+    window.location.hash = slideId;
+  }
+
+
+  /**
     * Moves slideshow to previous slide
     */
   previous(){
@@ -101,7 +109,7 @@ class Slides{
     if(previous <= 1){
       previous = 1;
     }
-    window.location.hash = previous;
+    this.goto(previous);
   }
 
 
@@ -113,7 +121,7 @@ class Slides{
     if(next >= this.list.length){
       next = this.list.length;
     }
-    window.location.hash = next;
+    this.goto(next);
   }
 
 
