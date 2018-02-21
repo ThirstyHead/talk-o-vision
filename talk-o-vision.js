@@ -18,14 +18,37 @@ class Slides{
     this.list = document.querySelectorAll(".slideshow > section");
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
+    window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
   }
 
-  /** 
+  /**
     * @returns the current slide number
     */
-  get current(){
+  get currentId(){
     return window.location.hash.replace("#", "") * 1 || 1;
   }
+
+  /**
+    * @returns select data from the current slide
+    */
+  slideInfo(slideId = this.currentId){
+    let rawSlide = document.getElementById(slideId);
+    let title = rawSlide.querySelector('h2') ? rawSlide.querySelector('h2').innerText : `Slide ${this.currentId}`;
+    let notes = rawSlide.querySelector('figcaption') ? rawSlide.querySelector('figcaption').innerHTML : 'No notes provided';
+
+    let currentSlide = {
+      'id': this.currentId,
+      'title': title,
+      'notes': notes
+    };
+
+    if(rawSlide.classList.contains('section-title')){
+      currentSlide.sectionTitle = true;
+    }
+
+    return currentSlide;
+  }
+
 
   /**
     * Adds an "id" attribute to each slide containing the slide number.
@@ -41,7 +64,7 @@ class Slides{
     * Moves slideshow to previous slide
     */
   previous(){
-    let previous = this.current - 1;
+    let previous = this.currentId - 1;
     if(previous <= 1){
       previous = 1;
     }
@@ -52,7 +75,7 @@ class Slides{
     * Advances slideshow to next slide
     */
   next(){
-    let next = this.current + 1;
+    let next = this.currentId + 1;
     if(next >= this.list.length){
       next = this.list.length;
     }
@@ -105,5 +128,13 @@ class Slides{
         // window.localStorage.setItem('showNotes', !showNotes);
         break;
     }
+  }
+
+  /**
+    * Handles event based on slide change
+    * For example: next, previous
+    */
+  hashchangeHandler(e){
+    window.localStorage.setItem('currentSlide', JSON.stringify(this.slideInfo()));
   }
 }
