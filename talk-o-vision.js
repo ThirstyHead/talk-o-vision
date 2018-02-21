@@ -20,6 +20,7 @@ class Slides{
     */
   constructor(){
     this.list = document.querySelectorAll(".slideshow > section");
+    this.notesWindow = undefined;
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
@@ -49,10 +50,31 @@ class Slides{
 
 
   /**
-    * Toggles the state of showNotes
+    * Toggles the display of the Speaker_Notes window
     */
   toggleNotes(){
     window.localStorage.setItem('showNotes', !(this.showNotes));
+
+    if(this.showNotes){
+      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
+      this.notesWindow = window.open("", "Speaker_Notes", windowFeatures);
+
+      let html = `<html>
+        <head>
+          <title>This is my title</title>
+        </head>
+        <body>
+           <h1>This is my body</h1>
+        </body>
+      </html>`;
+
+      let doc = this.notesWindow.document;
+      doc.open();
+      doc.write(html);
+      doc.close();
+    }else{
+      this.notesWindow.close();
+    }
   }
 
 
