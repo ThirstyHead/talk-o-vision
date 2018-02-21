@@ -14,18 +14,86 @@ function slideshowInit(){
   * Represents the slide deck
   */
 class Slides{
+  /**
+    * Creates a new Slides object
+    * @constructor
+    */
   constructor(){
     this.list = document.querySelectorAll(".slideshow > section");
+    this.notesWindow = undefined;
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
+    window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
   }
 
-  /** 
+
+  /**
     * @returns the current slide number
     */
-  get current(){
+  get currentId(){
     return window.location.hash.replace("#", "") * 1 || 1;
   }
+
+
+  /**
+    * @returns notesOn
+    */
+  get notesOn(){
+    return window.localStorage.getItem('notesOn') === 'true';
+  }
+
+
+  /**
+    * @param {boolean} value
+    */
+  set notesOn(value){
+    window.localStorage.setItem('notesOn', (value === true) );
+  }
+
+
+  /**
+    * Toggles speaker notes
+    */
+  toggleNotes(){
+    this.notesOn = !this.notesOn;
+    this.displayNotes();
+  }
+
+
+  /**
+    * Display speaker notes, based on notesOn value
+    */
+  displayNotes(){
+    if(this.notesOn){
+      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
+      this.notesWindow = window.open("notes.html", "Speaker_Notes", windowFeatures);
+    }else{
+      this.notesWindow && this.notesWindow.close();
+    }
+  }
+
+
+  /**
+    * @returns select data from the current slide
+    */
+  slideInfo(slideId = this.currentId){
+    let rawSlide = document.getElementById(slideId);
+    let title = rawSlide.querySelector('h2') ? rawSlide.querySelector('h2').innerText : `Slide ${this.currentId}`;
+    let notes = rawSlide.querySelector('figcaption') ? rawSlide.querySelector('figcaption').innerHTML : 'No notes provided';
+
+    let currentSlide = {
+      'id': this.currentId,
+      'title': title,
+      'notes': notes
+    };
+
+    if(rawSlide.classList.contains('section-title')){
+      currentSlide.sectionTitle = true;
+    }
+
+    return currentSlide;
+  }
+
 
   /**
     * Adds an "id" attribute to each slide containing the slide number.
@@ -35,29 +103,34 @@ class Slides{
     for(let i=0; i<this.list.length; i++){
       this.list[i].id = `${i + 1}`;
     }
+
+    window.localStorage.setItem('slideCount', this.list.length);
   }
+
 
   /**
     * Moves slideshow to previous slide
     */
   previous(){
-    let previous = this.current - 1;
+    let previous = this.currentId - 1;
     if(previous <= 1){
       previous = 1;
     }
     window.location.hash = previous;
   }
 
+
   /**
     * Advances slideshow to next slide
     */
   next(){
-    let next = this.current + 1;
+    let next = this.currentId + 1;
     if(next >= this.list.length){
       next = this.list.length;
     }
     window.location.hash = next;
   }
+
 
   /**
     * Enables fullscreen
@@ -74,6 +147,7 @@ class Slides{
       requestFullscreen.apply(html);
     }
   }
+
 
   /**
     * Enables keyboard shortcuts
@@ -100,10 +174,17 @@ class Slides{
         break;
 
       case 78: // n
-        //toggle showNotes
-        // let showNotes = ( window.localStorage.getItem('showNotes') === 'true' );
-        // window.localStorage.setItem('showNotes', !showNotes);
+        this.toggleNotes();
         break;
     }
+  }
+
+
+  /**
+    * Handles event based on slide change
+    * For example: next, previous
+    */
+  hashchangeHandler(e){
+    window.localStorage.setItem('currentSlide', JSON.stringify(this.slideInfo()));
   }
 }
