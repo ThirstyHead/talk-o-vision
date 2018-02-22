@@ -22,6 +22,8 @@ class Slides{
     this.list = document.querySelectorAll(".slideshow > section");
     this.notesWindow = undefined;
     this.notesOn = false;
+    this.tocWindow = undefined;
+    this.tocOn = false;
     this.addNumberToSlides();
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
@@ -33,28 +35,6 @@ class Slides{
     */
   get currentId(){
     return window.location.hash.replace("#", "") * 1 || 1;
-  }
-
-
-  /**
-    * Toggles speaker notes
-    */
-  toggleNotes(){
-    this.notesOn = !this.notesOn;
-    this.displayNotes();
-  }
-
-
-  /**
-    * Displays speaker notes
-    */
-  displayNotes(){
-    if(this.notesOn){
-      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
-      this.notesWindow = window.open("notes.html", "Speaker_Notes", windowFeatures);
-    }else{
-      this.notesWindow && this.notesWindow.close();
-    }
   }
 
 
@@ -143,6 +123,50 @@ class Slides{
 
 
   /**
+    * Toggles speaker notes
+    */
+  toggleNotes(){
+    this.notesOn = !this.notesOn;
+    this.displayNotes();
+  }
+
+
+  /**
+    * Displays speaker notes
+    */
+  displayNotes(){
+    if(this.notesOn){
+      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
+      this.notesWindow = window.open("notes.html", "Speaker_Notes", windowFeatures);
+    }else{
+      this.notesWindow && this.notesWindow.close();
+    }
+  }
+
+
+  /**
+    * Toggles Table of Contents
+    */
+  toggleToc(){
+    this.tocOn = !this.tocOn;
+    this.displayToc();
+  }
+
+
+  /**
+    * Displays Table of Contents
+    */
+  displayToc(){
+    if(this.tocOn){
+      let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
+      this.tocWindow = window.open("toc.html", "Table_of_Contents", windowFeatures);
+    }else{
+      this.tocWindow && this.tocWindow.close();
+    }
+  }
+
+
+  /**
     * Enables keyboard shortcuts
     * For example: next, previous, fullscreen
     */
@@ -174,6 +198,11 @@ class Slides{
       case 78: // n
         this.toggleNotes();
         break;
+
+      case 84: // t
+        this.toggleToc();
+        break;
+
     }
   }
 
