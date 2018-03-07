@@ -39,6 +39,19 @@ class Slides{
 
 
   /**
+    * @returns the table of contents
+    */
+  get toc(){
+    let tocList = window.localStorage.getItem('toc');
+    if(!tocList){
+      this.generateToc();
+      tocList = window.localStorage.getItem('toc');
+    }
+    return tocList;
+  }
+
+
+  /**
     * @returns slide information as JSON for a given slideId
     */
   slideInfo(slideId = this.currentId){
@@ -158,11 +171,26 @@ class Slides{
     */
   displayToc(){
     if(this.tocOn){
+      let toc = this.toc;
       let windowFeatures = "width=400, height=600, resizable=yes, scrollbars=yes, menubar=no, toolbar=no, location=no, personalbar=no, status=no";
       this.tocWindow = window.open("toc.html", "Table_of_Contents", windowFeatures);
     }else{
       this.tocWindow && this.tocWindow.close();
     }
+  }
+
+
+  /**
+    * Generates Table of Contents
+    */
+  generateToc(){
+    let tocList = [];
+    for(let i=0; i<this.list.length; i++){
+      let slideId = i+1;
+      tocList[slideId] = this.slideInfo(slideId);
+    }
+
+    window.localStorage.setItem('toc', JSON.stringify(tocList));
   }
 
 
