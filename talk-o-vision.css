@@ -1,6 +1,6 @@
 /**************************
   Box-sizing
-  https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 ***************************/
 html {
   box-sizing: border-box;
@@ -37,7 +37,7 @@ body{
 }
 
 code{
-  /* NOTE: background, foreground colors are inverted */
+  /* NOTE: background, foreground colors are reversed */
   background-color: var(--theme-foreground-color);
   color: var(--theme-background-color);
   display: inline-block;
