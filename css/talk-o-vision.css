@@ -36,6 +36,10 @@ body{
   font-size: var(--theme-font-size);
 }
 
+figcaption{
+  display: none;
+}
+
 section{
   height: 100vh;
   page-break-after: always;
@@ -44,12 +48,6 @@ section{
 /**************************
   Custom Classes
 ***************************/
-.main-title{
-  /* NOTE: override background in index.html */
-  /* background: url('slides/title/speech-bubble-inverted.png') no-repeat center center; */
-  background-size: contain;
-}
-
 .banner{
   color: var(--theme-background-color);
   background-color: var(--theme-highlight-color);
@@ -65,13 +63,29 @@ section{
   top: 25%;
 }
 
+.bio{
+  text-align: right;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.contain{
+  height: 100vh;
+  object-fit: contain;
+}
+
+.main-title{
+  /* NOTE: override background in index.html */
+  /* background: url('slides/title/speech-bubble-inverted.png') no-repeat center center; */
+  background-size: contain;
+}
+
 .subtitle{
   font-size: 3rem;
   font-style: italic;
 }
 
-.bio{
-  text-align: right;
-  font-size: 2rem;
-  font-weight: normal;
+.theme-invert{
+  background-color: var(--theme-foreground-color);
+  color: var(--theme-background-color);
 }
