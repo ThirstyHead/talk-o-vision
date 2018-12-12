@@ -58,6 +58,7 @@ p{
 section{
   height: 100vh;
   page-break-after: always;
+  overflow: hidden;
 }
 
 /**************************
@@ -100,8 +101,17 @@ section{
   object-fit: contain;
 }
 
+.contain-with-header{
+  height: 65vh;
+  object-fit: contain;
+}
+
 .display{
   display: block;
+}
+
+.half{
+  width: 50vw;
 }
 
 .main-title{
