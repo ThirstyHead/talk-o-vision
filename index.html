@@ -1,14 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>Talk-o-Vision</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1,
+                                   user-scalable=yes">
+    <meta name="author" content="Scott Davis <scott@thirstyhead.com>">
+    <meta name="description" content="A modern HTML5-based slideshow">
+    <meta name="keywords" content="ThirstyHead, HTML5, slides, Accessibility, a11y">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/talk-o-vision.css">
+
+    <style>
+      .main-title{
+        background: url('slides/title/speech-bubble-inverted.png') no-repeat center center;
+        background-size: contain;
+      }
+    </style>
+
   </head>
   <body>
-    <h1>Talk-o-Vision</h1>
+    <main class="slideshow">
+      <h1 hidden aria-hidden="false">Presentation: Talk-o-Vision</h1>
 
-    <p>HTML-based slides + audio + video</p>
+      <section class="main-title">
+        <h2>Title slide</h2>
 
-    <p><a href="index-slideshow.html">Demo</a></p>
+      </section>
+
+      <section>
+        <h2>Another slide</h2>
+
+      </section>
+
+      <section>
+        <h2>Yet Another Slide</h2>
+
+      </section>
+
+      <section>
+        <!-- <h2>No Header</h2> -->
+
+      </section>
+
+      <section class="section-title">
+        <h2>Features</h2>
+
+      </section>
+
+
+    </main>
+
+    <script src="js/talk-o-vision.js"></script>
   </body>
 </html>

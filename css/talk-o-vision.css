@@ -1,0 +1,42 @@
+/**************************
+  Box-sizing
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+***************************/
+html {
+  box-sizing: border-box;
+  background-color: var(--theme-background-color);
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**************************
+  Theme
+***************************/
+:root{
+  --theme-background-color: black;
+  --theme-foreground-color: white;
+  --theme-highlight-color: yellow;
+  --theme-link-hover-color: red;
+  --theme-font-size: 2rem;
+}
+
+/**************************
+  Elements
+***************************/
+body{
+  background-color: var(--theme-background-color);
+  color: var(--theme-foreground-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: var(--theme-font-size);
+}
+
+section{
+  height: 100vh;
+  page-break-after: always;
+}
