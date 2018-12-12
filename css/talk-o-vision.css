@@ -22,6 +22,8 @@ html {
   --theme-highlight-color: yellow;
   --theme-link-hover-color: red;
   --theme-font-size: 2rem;
+  --theme-font-family-heading: "Times New Roman", Times, serif;
+  --theme-font-family-body: Arial, Helvetica, sans-serif;
 }
 
 /**************************
@@ -34,10 +36,23 @@ body{
   padding: 0;
   text-align: center;
   font-size: var(--theme-font-size);
+  font-family: var(--theme-font-family-body);
 }
 
 figcaption{
   display: none;
+}
+
+h2{
+  font-size: 5rem;
+  padding-top: 1rem;
+  font-family: var(--theme-font-family-heading);
+}
+
+p{
+  width: 80%;
+  padding-left: 20%;
+  font-size: 2.5rem;
 }
 
 section{
@@ -53,12 +68,13 @@ section{
   background-color: var(--theme-highlight-color);
   opacity: 0.8;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5rem;
   padding-left: 15%;
   padding-right: 15%;
   text-align: left;
   font-size: 4rem;
   font-weight: bold;
+  font-family: var(--theme-font-family-heading);
   position: relative;
   top: 25%;
 }
@@ -67,6 +83,7 @@ section{
   text-align: right;
   font-size: 2rem;
   font-weight: normal;
+  font-family: var(--theme-font-family-heading);
 }
 
 .bio a{
@@ -83,10 +100,14 @@ section{
   object-fit: contain;
 }
 
+.display{
+  display: block;
+}
+
 .main-title{
   /* NOTE: override background in index.html */
   /* background: url('slides/title/speech-bubble-inverted.png') no-repeat center center; */
-  background-size: contain;
+  /* background-size: contain; */
 }
 
 .subtitle{
