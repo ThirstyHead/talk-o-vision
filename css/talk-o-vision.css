@@ -69,6 +69,15 @@ section{
   font-weight: normal;
 }
 
+.bio a{
+  color: var(--theme-background-color);
+  text-decoration: none;
+}
+
+.bio a:hover{
+  color: var(--theme-link-hover-color);
+}
+
 .contain{
   height: 100vh;
   object-fit: contain;
