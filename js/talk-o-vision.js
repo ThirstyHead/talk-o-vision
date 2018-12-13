@@ -24,7 +24,8 @@ class Slides{
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
     this.playAudio = false;
-    this.autoPlay = false;
+    this.playSpeech = true;
+    this.autoPlay = true;
   }
 
   /**
