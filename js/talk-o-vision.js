@@ -24,6 +24,7 @@ class Slides{
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
     this.playAudio = true;
+    this.autoPlay = true;  
   }
 
   /**
@@ -231,6 +232,9 @@ class Slides{
       const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
       if(audio){
         audio.play();
+        if(this.autoPlay){
+          audio.addEventListener('ended', evt => this.audioEndedHandler(evt));
+        }
       }
     }
   }
@@ -247,5 +251,13 @@ class Slides{
         break;
     }
   }
+
+  /**
+    * Handles event based on the end of audio playback
+    */
+  audioEndedHandler(event){
+    this.goto(this.currentId + 1);
+  }
+
 
 }
