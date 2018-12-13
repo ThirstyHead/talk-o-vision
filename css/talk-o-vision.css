@@ -77,7 +77,7 @@ section{
   font-weight: bold;
   font-family: var(--theme-font-family-heading);
   position: relative;
-  top: 25%;
+  top: 25vh;
 }
 
 .bio{
