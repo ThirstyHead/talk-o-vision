@@ -111,13 +111,27 @@ section{
 }
 
 .half{
-  width: 50vw;
+  width: 45vw;
+}
+
+.left{
+  float: left;
 }
 
 .main-title{
   /* NOTE: override background in index.html */
   /* background: url('slides/title/speech-bubble-inverted.png') no-repeat center center; */
   /* background-size: contain; */
+}
+
+.right{
+  float: right;
+}
+
+p.right{
+  width: 45%;
+  padding-left: 0;
+  padding-right: 5%;
 }
 
 .subtitle{
