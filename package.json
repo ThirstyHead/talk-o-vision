@@ -4,8 +4,7 @@
   "description": "An HTML-based slideshow framework",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "jsdoc": "./node_modules/.bin/jsdoc talk-o-vision.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,12 +16,9 @@
     "slideshow"
   ],
   "author": "Scott Davis <scott@thirstyhead.com>",
-  "license": "MIT",
+  "license": "CC-BY-4.0",
   "bugs": {
     "url": "https://github.com/ThirstyHead/talk-o-vision/issues"
   },
-  "homepage": "https://github.com/ThirstyHead/talk-o-vision#readme",
-  "devDependencies": {
-    "jsdoc": "~3.5.5"
-  }
+  "homepage": "https://github.com/ThirstyHead/talk-o-vision#readme"
 }
