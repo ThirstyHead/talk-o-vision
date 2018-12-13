@@ -24,7 +24,7 @@ class Slides{
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
     this.playAudio = true;
-    this.autoPlay = true;  
+    this.autoPlay = true;
   }
 
   /**
@@ -199,11 +199,23 @@ class Slides{
         this.fullscreen();
         break;
 
+      // play / pause
+      case 80: // p
+        event.preventDefault();
+        const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
+        if(audio && audio.paused){
+          audio.play();
+        }else{
+          audio.pause();
+        }
+        break;
+
       // goto home slide
       case 72: // h
         event.preventDefault();
         this.goto(1);
         break;
+
 
       // transcript / table of contents
       case 84: // t
