@@ -124,17 +124,26 @@
           </p>
           <figcaption>
             <p>
-              Accessibility, or <abbr title="Accessibility">a11y</abbr> for
-              short, means that everyone can enjoy your slideshow. Not just the
-              folks who attended your talk live. Not just the folks who can see
-              your slides.
+              Talk-o-Vision uses the browser-native SpeechSynthesis API
+              to speak the notes you write in a &lt;figcaption&gt; element.
             </p>
+            <p>
+              Any audio supplied in the standard &lt;audio&gt; element can
+              be played as you move from slide to slide.
+            </p>
+
           </figcaption>
         </figure>
       </section>
 
+
+
+
+
+
+
       <section class="section-title">
-        <h2 class="highlight">Examples</h2>
+        <h2>Here are some <span class="highlight">examples</span>...</h2>
         <figure>
           <figcaption>
            <p>In this section, you'll see examples of various types of slides:
@@ -143,6 +152,591 @@
           </figcaption>
         </figure>
       </section>
+
+      <section>
+        <figure>
+          <h2>Basic Text Slide</h2>
+          <figcaption class="display">
+            <p>
+              A typical slide often contains text.
+            </p>
+            <p>
+              Wrapping text in a <span class="highlight">&lt;p&gt;</span> element allows you to
+              express your thoughts in the written word. In later examples,
+              you'll see how to add images, code snippets, tables, and more
+              advanced visual elements.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <figure>
+          <h2>Bullet Items</h2>
+          <ul>
+            <li>An unordered list (<span class="highlight">&lt;ul&gt;</span>)</li>
+            <li>displays list items (<span class="highlight">&lt;li&gt;</span>)</li>
+            <li>with bullets</li>
+          </ul>
+
+          <ol>
+            <li>An ordered list (<span class="highlight">&lt;ol&gt;</span>)</li>
+            <li>displays list items (<span class="highlight">&lt;li&gt;</span>)</li>
+            <li>with numbers</li>
+          </ol>
+
+          <figcaption>
+            <p>You can display information using
+              <span class="highlight">&lt;ul&gt;</span> for unordered
+              ("bullet") lists, <span class="highlight">&lt;ol&gt;</span>
+              for ordered ("numbered") lists, and <span class="highlight">&lt;p&gt;</span>
+              for plain-old paragraphs.</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Highlighting Text</h2>
+        <figure>
+          <figcaption class="display">
+            <p>
+              To highlight text, wrap the text in<br>
+              <span class="highlight">&lt;span class="highlight"&gt;</span>.
+            </p>
+
+            <p>
+              Use this <span class="highlight">sparingly</span>, of course...
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Code Example</h2>
+        <figure>
+          <pre><code>
+let message = "JavaScript is cool!";
+String.prototype.shout = function(){
+  return this.toUpperCase();
+}
+console.log(message.shout());
+          </code></pre>
+
+          <figcaption class="display">
+            <p>
+              To display a code snippet, wrap it in a set of<br>
+              <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span>
+              elements.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Table Example</h2>
+        <figure>
+          <table>
+            <caption>Engines in Popular Web Browsers</caption>
+            <thead>
+              <tr>
+                <th scope="col">Browser</th>
+                <th scope="col">Vendor</th>
+                <th scope="col"><a href="https://en.wikipedia.org/wiki/Comparison_of_web_browser_engines">Layout Engine</a></th>
+                <th scope="col"><a href="https://en.wikipedia.org/wiki/JavaScript_engine">Script Engine</a></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td scope="row">Chrome</td>
+                <td>Google</td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Firefox</td>
+                <td>Mozilla</td>
+                <td><a href="https://en.wikipedia.org/wiki/Gecko_(software)">Gecko</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/SpiderMonkey">SpiderMonkey</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Safari</td>
+                <td>Apple</td>
+                <td><a href="https://en.wikipedia.org/wiki/WebKit">WebKit</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore">JavaScriptCore (Nitro)</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Edge</td>
+                <td>Microsoft</td>
+                <td><a href="https://en.wikipedia.org/wiki/EdgeHTML">EdgeHTML</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)">Chakra</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Opera</td>
+                <td>Opera</td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <figcaption>
+            <p>
+              Tables use all of the typical HTML elements you'd expect:
+              <span class="highlight">&lt;table&gt;</span>,
+              <span class="highlight">&lt;tr&gt;</span>,
+              <span class="highlight">&lt;td&gt;</span>,
+              <span class="highlight">&lt;th&gt;</span>,
+              and <span class="highlight">&lt;caption&gt;</span>.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Images</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain-with-header half left"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption class="display">
+           <p class="right">
+             You can add an image by using the
+             <span class="highlight">&lt;img&gt;</span> element. Don't forget
+             to add an alternate text description using the
+             <span class="highlight">alt</span> attribute -- your
+             sight-impaired audience using a screen reader will appreciate it.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Images (cont.)</h2>
+        <figure>
+          <figcaption class="display">
+            <ul>
+              <li>
+                For a full-screen image:<br>
+                <span class="highlight">&lt;img class="contain"&gt;</span>
+              </li>
+
+              <li>
+                For an image on a slide with a header:<br>
+                <span class="highlight">&lt;img class="contain-with-header"&gt;</span>
+              </li>
+
+              <li>
+                For a half-screen image:<br>
+                <span class="highlight">&lt;img class="contain half left"&gt;</span> or<br>
+                <span class="highlight">&lt;img class="contain half right"&gt;</span>
+              </li>
+            </ul>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Image with Header</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain-with-header"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+           <p>
+             For an image on a slide with a header, use
+             <span class="highlight">&lt;img class="contain-with-header"&gt;</span>.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2 hidden aria-hidden="false">Fullscreen Image</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+           <p>
+             For a fullscreen image, use
+             <span class="highlight">&lt;img class="contain"&gt;</span>.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+
+
+
+
+
+
+      <section class="section-title">
+        <h2><span class="highlight">Inverted</span> slide examples</h2>
+        <figure>
+          <figcaption>
+            <p>
+              You can easily invert the colors of your slides, swapping black
+              for white in backgrounds, text, etc.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>How to invert slide colors</h2>
+        <figure>
+          <figcaption class="display">
+            <p>Add <span class="highlight">class="theme-invert"</span>
+              to any slide to invert (reverse) the colors.</p>
+          </figcaption>
+
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <figure>
+          <h2>Basic Text Slide</h2>
+          <figcaption class="display">
+            <p>
+              A typical slide often contains text.
+            </p>
+            <p>
+              Wrapping text in a <span class="highlight">&lt;p&gt;</span> element allows you to
+              express your thoughts in the written word. In later examples,
+              you'll see how to add images, code snippets, tables, and more
+              advanced visual elements.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <figure>
+          <h2>Bullet Items</h2>
+          <ul>
+            <li>An unordered list (<span class="highlight">&lt;ul&gt;</span>)</li>
+            <li>displays list items (<span class="highlight">&lt;li&gt;</span>)</li>
+            <li>with bullets</li>
+          </ul>
+
+          <ol>
+            <li>An ordered list (<span class="highlight">&lt;ol&gt;</span>)</li>
+            <li>displays list items (<span class="highlight">&lt;li&gt;</span>)</li>
+            <li>with numbers</li>
+          </ol>
+
+          <figcaption>
+            <p>You can display information using
+              <span class="highlight">&lt;ul&gt;</span> for unordered
+              ("bullet") lists, <span class="highlight">&lt;ol&gt;</span>
+              for ordered ("numbered") lists, and <span class="highlight">&lt;p&gt;</span>
+              for plain-old paragraphs.</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Highlighting Text</h2>
+        <figure>
+          <figcaption class="display">
+            <p>
+              To highlight text, wrap the text in<br>
+              <span class="highlight">&lt;span class="highlight"&gt;</span>.
+            </p>
+
+            <p>
+              Use this <span class="highlight">sparingly</span>, of course...
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Code Example</h2>
+        <figure>
+          <pre><code>
+let message = "JavaScript is cool!";
+String.prototype.shout = function(){
+  return this.toUpperCase();
+}
+console.log(message.shout());
+          </code></pre>
+
+          <figcaption class="display">
+            <p>
+              To display a code snippet, wrap it in a set of<br>
+              <span class="highlight">&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</span>
+              elements.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Table Example</h2>
+        <figure>
+          <table>
+            <caption>Engines in Popular Web Browsers</caption>
+            <thead>
+              <tr>
+                <th scope="col">Browser</th>
+                <th scope="col">Vendor</th>
+                <th scope="col"><a href="https://en.wikipedia.org/wiki/Comparison_of_web_browser_engines">Layout Engine</a></th>
+                <th scope="col"><a href="https://en.wikipedia.org/wiki/JavaScript_engine">Script Engine</a></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td scope="row">Chrome</td>
+                <td>Google</td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Firefox</td>
+                <td>Mozilla</td>
+                <td><a href="https://en.wikipedia.org/wiki/Gecko_(software)">Gecko</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/SpiderMonkey">SpiderMonkey</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Safari</td>
+                <td>Apple</td>
+                <td><a href="https://en.wikipedia.org/wiki/WebKit">WebKit</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore">JavaScriptCore (Nitro)</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Edge</td>
+                <td>Microsoft</td>
+                <td><a href="https://en.wikipedia.org/wiki/EdgeHTML">EdgeHTML</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)">Chakra</a></td>
+              </tr>
+              <tr>
+                <td scope="row">Opera</td>
+                <td>Opera</td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <figcaption>
+            <p>
+              Tables use all of the typical HTML elements you'd expect:
+              <span class="highlight">&lt;table&gt;</span>,
+              <span class="highlight">&lt;tr&gt;</span>,
+              <span class="highlight">&lt;td&gt;</span>,
+              <span class="highlight">&lt;th&gt;</span>,
+              and <span class="highlight">&lt;caption&gt;</span>.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Images</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain-with-header half left"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption class="display">
+           <p class="right">
+             You can add an image by using the
+             <span class="highlight">&lt;img&gt;</span> element. Don't forget
+             to add an alternate text description using the
+             <span class="highlight">alt</span> attribute -- your
+             sight-impaired audience using a screen reader will appreciate it.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Images (cont.)</h2>
+        <figure>
+          <figcaption class="display">
+            <ul>
+              <li>
+                For a full-screen image:<br>
+                <span class="highlight">&lt;img class="contain"&gt;</span>
+              </li>
+
+              <li>
+                For an image on a slide with a header:<br>
+                <span class="highlight">&lt;img class="contain-with-header"&gt;</span>
+              </li>
+
+              <li>
+                For a half-screen image:<br>
+                <span class="highlight">&lt;img class="contain half left"&gt;</span> or<br>
+                <span class="highlight">&lt;img class="contain half right"&gt;</span>
+              </li>
+            </ul>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2>Image with Header</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain-with-header"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+           <p>
+             For an image on a slide with a header, use
+             <span class="highlight">&lt;img class="contain-with-header"&gt;</span>.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="theme-invert">
+        <h2 hidden aria-hidden="false">Fullscreen Image</h2>
+        <figure>
+          <img src="slides/shoes/shoes.jpg"
+               alt="shoes"
+               class="contain"
+               data-src="https://morguefile.com/p/23395">
+
+          <figcaption>
+           <p>
+             For a fullscreen image, use
+             <span class="highlight">&lt;img class="contain"&gt;</span>.
+           </p>
+          </figcaption>
+        </figure>
+      </section>
+
+
+
+
+
+
+
+      <section class="section-title">
+        <h2><span class="highlight">Conclusion</span></h2>
+        <figure>
+          <figcaption>
+            <p>
+              In conclusion, here are a few final tips.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <figure>
+          <h2>Yet Another Slideshow?</h2>
+          <figcaption class="display">
+            <p>Unfortunately, yes...</p>
+            <p>But Talk-o-Vision is trying to be something different.
+            Something unique.</p>
+            <p><span class="highlight">Talk-o-Vision uses only browser-native
+              functionality.</span>
+            That's HTML, CSS, and JavaScript. No frameworks. No external
+            dependencies.</p>
+          </figcaption>
+        </figure>
+      </section>      
+
+      <section>
+        <h2>View the Source, Luke!</h2>
+        <figure>
+          <figcaption class="display">
+            <p>
+              Of course, this presentation is written in Talk-o-Vision,
+              using semantic HTML elements where ever possible.
+            </p>
+            <p>
+              The best way to see how something is done is a simple
+              <span class="highlight">View / Source</span> or
+              <span class="highlight">[right-click] / Inspect</span>.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>CSS is Your Friend</h2>
+        <figure>
+          <figcaption class="display">
+            <p>
+              No, really!
+            </p>
+            <p>
+              Look in <span class="highlight">css/talk-o-vision.css</span>
+              for the standard styles and custom classes used.
+            </p>
+            <p>
+              You can easily create per-slideshow customizations by adding
+              your overriding rules to the
+              <span class="highlight">&lt;style&gt;</span> element that
+              follows the
+              <span class="highlight">&lt;link rel="stylesheet"&gt;</span>,
+              because CSS cascades, right?
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Vanilla JavaScript</h2>
+        <figure>
+          <figcaption class="display">
+            <p>
+              Talk-o-Vision is truly framework-free. It only uses free-range,
+              organic, hand-crafted JavaScript.
+            </p>
+            <p>
+              Look in <span class="highlight">js/talk-o-vision.js</span>
+              for the secret keystrokes and hidden windows like
+              Transcripts. (Press 'T' if you don't believe me...)
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="main-title">
+        <h2 hidden aria-hidden="false">Introducing Talk-o-Vision</h2>
+        <figure>
+          <div class="banner">
+            Introducing Talk-o-Vision
+            <div class="subtitle">
+              A Browser-Native Slideshow
+            </div>
+            <div class="bio">
+              Scott Davis<br>
+              <a href="mailto:scott@thirstyhead.com">scott@thirstyhead.com</a><br>
+              <a href="https://twitter.com/scottdavis99">@scottdavis99</a>
+            </div>
+          </div>
+          <figcaption>
+            <p>
+              Introducing Talk-o-Vision, a Browser-Native Slideshow.
+            </p>
+            <p>
+              Presented by Scott Davis. His email address is
+              scott@thirstyhead.com. His Twitter handle is @scottdavis99.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+
+
 
 
     </main>
