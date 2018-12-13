@@ -114,6 +114,10 @@ section{
   width: 45vw;
 }
 
+.highlight{
+  color: var(--theme-highlight-color);
+}
+
 .left{
   float: left;
 }
@@ -132,6 +136,11 @@ p.right{
   width: 45%;
   padding-left: 0;
   padding-right: 5%;
+}
+
+.section-title h2{
+  position: relative;
+  top: 35vh;
 }
 
 .subtitle{
