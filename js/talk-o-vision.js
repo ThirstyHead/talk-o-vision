@@ -23,8 +23,8 @@ class Slides{
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
-    this.playAudio = true;
-    this.autoPlay = true;
+    this.playAudio = false;
+    this.autoPlay = false;
   }
 
   /**
