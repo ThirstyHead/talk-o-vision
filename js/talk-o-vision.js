@@ -23,6 +23,7 @@ class Slides{
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
+    this.playAudio = true;
   }
 
   /**
@@ -218,6 +219,20 @@ class Slides{
     */
   hashchangeHandler(event){
     window.localStorage.setItem('currentSlide', JSON.stringify(this.slideInfo(this.currentId)));
+    if(this.playAudio){
+      // stop all current audio
+      const audioList = document.querySelectorAll('audio');
+      for(let i=0; i<audioList.length; i++){
+        audioList[i].pause();
+        audioList[i].currentTime = 0;
+      }
+
+      // play audio for current slide
+      const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
+      if(audio){
+        audio.play();
+      }
+    }
   }
 
   /**
