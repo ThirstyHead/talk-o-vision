@@ -52,6 +52,59 @@
         </figure>
       </section>
 
+      <section>
+        <h2 aria-hidden="false">Instructions</h2>
+        <audio src="slides/instructions/audio.mp3"></audio>
+        <figure>
+          <table>
+            <tr>
+              <th>Keyboard Shortcut</th>
+              <th>Description</th>
+            </tr>
+
+            <tr>
+              <td>&rightarrow; or [space]</td>
+              <td>Next slide</td>
+            </tr>
+            <tr>
+              <td>&leftarrow;</td>
+              <td>Previous slide</td>
+            </tr>
+            <tr>
+              <td class="highlight">f</td>
+              <td><span class="highlight">F</span>ullscreen view (toggles on/off)</td>
+            </tr>
+            <tr>
+              <td class="highlight">t</td>
+              <td><span class="highlight">T</span>ranscript view (opens in separate window)</td>
+            </tr>
+            <tr>
+              <td class="highlight">p</td>
+              <td><span class="highlight">P</span>lay/pause audio for the current slide.</td>
+            </tr>
+            <tr>
+              <td class="highlight">a</td>
+              <td><span class="highlight">A</span>uto-play audio and advance to next slide. (toggles 
+on/off)</td>
+            </tr>
+          </table>
+
+          <figcaption>
+            <p>
+              Here are some quick keyboard shortcuts to help you get around.
+              <ul>
+                <li>Press the right arrow or space bar to go to the next slide.</li>
+                <li>Press the left arrow to go to the previous slide.</li>
+                <li>Press 'f' to toggle full screen mode.</li>
+                <li>Press 't' to open the written transcripts in a separate window.</li>
+                <li>Press 'p' to play or pause audio for the current slide.</li>
+                <li>Press 'a' to autoplay audio and advance to the next slide.</li>
+              </ul>
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
       <section class="theme-invert">
         <h2 hidden aria-hidden="false">Biography</h2>
         <audio src="slides/bio/audio.mp3"></audio>
@@ -61,7 +114,7 @@
                class="contain">
 
           <figcaption>
-           <p>Hi! My name is Scott Davis. I'm currently a Principle Engineer
+           <p>Hi! My name is Scott Davis. I'm currently a Principal Engineer
              with ThoughtWorks. Before that, I ran a software consultancy out
              of Denver, Colorado called ThirstyHead. </p>
 
@@ -80,8 +133,7 @@
           <audio src="slides/yet-another/audio.mp3"></audio>
           <figcaption class="display">
             <p>Unfortunately, yes...</p>
-            <p>But Talk-o-Vision is trying to be something different.
-            Something unique.</p>
+            <p>But Talk-o-Vision is trying to be something different.</p>
             <p><span class="highlight">Talk-o-Vision uses only browser-native
               functionality.</span>
             That's HTML, CSS, and JavaScript. No frameworks. No external
@@ -118,20 +170,14 @@
                alt="People talking"
                class="contain-with-header half left"
                data-src="https://commons.wikimedia.org/wiki/File:Talk_sign.svg">
-
           <p class="right">
-            If you add a transcript, you can have the browser read the slides
-            to your audience.
+            If you add an audio file, you can talk even if you're not there!
           </p>
+ 
           <p class="right">
-            If you add an audio file, your audience can listen to a recorded
-            version of your talk.
+            If you add a transcript, your hearing-impaired friends can play along.
           </p>
-          <figcaption>
-            <p>
-              Talk-o-Vision uses the browser-native SpeechSynthesis API
-              to speak the notes you write in a &lt;figcaption&gt; element.
-            </p>
+         <figcaption>
             <p>
               Any audio supplied in the standard &lt;audio&gt; element can
               be played as you move from slide to slide.
@@ -279,8 +325,8 @@ console.log(message.shout());
               <tr>
                 <td scope="row">Edge</td>
                 <td>Microsoft</td>
-                <td><a href="https://en.wikipedia.org/wiki/EdgeHTML">EdgeHTML</a></td>
-                <td><a href="https://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)">Chakra</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
               </tr>
               <tr>
                 <td scope="row">Opera</td>
@@ -318,8 +364,7 @@ console.log(message.shout());
              You can add an image by using the
              <span class="highlight">&lt;img&gt;</span> element. Don't forget
              to add an alternate text description using the
-             <span class="highlight">alt</span> attribute -- your
-             sight-impaired audience using a screen reader will appreciate it.
+             <span class="highlight">alt</span> attribute.
            </p>
           </figcaption>
         </figure>
@@ -538,8 +583,8 @@ console.log(message.shout());
               <tr>
                 <td scope="row">Edge</td>
                 <td>Microsoft</td>
-                <td><a href="https://en.wikipedia.org/wiki/EdgeHTML">EdgeHTML</a></td>
-                <td><a href="https://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)">Chakra</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Blink_(web_engine)">Blink</a></td>
+                <td><a href="https://en.wikipedia.org/wiki/Chrome_V8">V8</a></td>
               </tr>
               <tr>
                 <td scope="row">Opera</td>
@@ -577,8 +622,7 @@ console.log(message.shout());
              You can add an image by using the
              <span class="highlight">&lt;img&gt;</span> element. Don't forget
              to add an alternate text description using the
-             <span class="highlight">alt</span> attribute -- your
-             sight-impaired audience using a screen reader will appreciate it.
+             <span class="highlight">alt</span> attribute. 
            </p>
           </figcaption>
         </figure>
@@ -670,8 +714,7 @@ console.log(message.shout());
           <audio src="slides/yet-another/audio.mp3"></audio>
           <figcaption class="display">
             <p>Unfortunately, yes...</p>
-            <p>But Talk-o-Vision is trying to be something different.
-            Something unique.</p>
+            <p>But Talk-o-Vision is trying to be something different.</p>
             <p><span class="highlight">Talk-o-Vision uses only browser-native
               functionality.</span>
             That's HTML, CSS, and JavaScript. No frameworks. No external
@@ -703,9 +746,6 @@ console.log(message.shout());
         <audio src="slides/css-is-your-friend/audio.mp3"></audio>
         <figure>
           <figcaption class="display">
-            <p>
-              No, really!
-            </p>
             <p>
               Look in <span class="highlight">css/talk-o-vision.css</span>
               for the standard styles and custom classes used.
