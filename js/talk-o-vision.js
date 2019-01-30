@@ -142,8 +142,17 @@ class Slides{
     */
   playSpeechForCurrentSlide(){
     const figcaption = document.querySelector(`section[id="${this.currentId}"] figcaption`);
-    const text = figcaption.innerText;
-    const utterance = new SpeechSynthesisUtterance(text);
+    const text = figcaption.innerText.trim();
+    let utterance = new SpeechSynthesisUtterance(text);
+    if(this.autoPlay){
+      // utterance.addEventListener('start', evt => this.speechStartedHandler(evt));
+      utterance.addEventListener('error', evt => this.speechErrorHandler(evt));
+      utterance.addEventListener('end', evt => this.speechEndedHandler(evt));
+    }
+    utterance.id = this.currentId;
+    console.log(this.currentId);
+    console.dir(utterance);
+    // setTimeout(function(){window.speechSynthesis.speak(utterance);},500);
     window.speechSynthesis.speak(utterance);
   }
 
@@ -169,11 +178,16 @@ class Slides{
     const transcript = rawSlide.querySelector('figcaption') ?
                        rawSlide.querySelector('figcaption').innerHTML :
                        'No notes provided';
+    const text = rawSlide.querySelector('figcaption') ?
+                      rawSlide.querySelector('figcaption').innerText.trim() :
+                      '';
+    text.replace( /\s\s+/g, ' ' ); // compress all multiple spaces into single
 
     let slide = {
       'id': slideId,
       'title': title,
-      'transcript': transcript
+      'transcript': transcript,
+      'text': text
     };
 
     if(rawSlide.classList.contains('main-title')){
@@ -256,7 +270,22 @@ class Slides{
       // speak / pause speech
       case 83: // s
         event.preventDefault();
+        console.log("[s] pressed");
+        console.dir(window.speechSynthesis);
         this.playSpeechForCurrentSlide();
+
+
+
+        // if(window.speechSynthesis.paused){
+        //   if(window.speechSynthesis.pending){
+        //     window.speechSynthesis.resume();
+        //   }else{
+        //     this.playSpeechForCurrentSlide();
+        //   }
+        // }else{
+        //   window.speechSynthesis.pause();
+        // }
+        // this.playSpeechForCurrentSlide();
         break;
 
       // transcript / table of contents
@@ -280,7 +309,9 @@ class Slides{
     }
 
     if(this.playSpeech){
-      window.speechSynthesis.cancel();
+      if(window.speechSynthesis.pending){
+        window.speechSynthesis.cancel();
+      }
       this.playSpeechForCurrentSlide();
     }
   }
@@ -305,5 +336,32 @@ class Slides{
     this.goto(this.currentId + 1);
   }
 
+  /**
+    * Handles event based on the end of speech playback
+    */
+  speechEndedHandler(event){
+    console.log('speech ended');
+    console.dir(event);
+
+    this.goto(this.currentId + 1);
+  }
+
+
+  /**
+    * Handles event based on the start of speech playback
+    */
+  speechStartedHandler(event){
+    console.log('speech started');
+    console.dir(event);
+  }
+
+  /**
+    * Handles errors for SpeechSynthesisUtterance
+    */
+  speechErrorHandler(event){
+    console.error('SpeechSynthesisUtterance error');
+    console.error(event.error);
+    console.dir(event);
+  }
 
 }

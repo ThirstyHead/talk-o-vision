@@ -192,6 +192,7 @@
       // highlight current slide
       let activeLi = document.querySelector(`[id="${activeSlide.id}"]`)
       activeLi.classList.add('current');
+      window.location.hash = activeSlide.id;
     }
     </script>
   </head>
