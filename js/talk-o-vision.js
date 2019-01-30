@@ -23,8 +23,18 @@ class Slides{
     window.addEventListener('keydown', evt => this.keyHandler(evt));
     window.addEventListener('hashchange', evt => this.hashchangeHandler(evt));
     window.addEventListener('message', evt => this.messageHandler(evt));
-    this.playAudio = false;
     this.autoPlay = false;
+    this.addAudioEndedEventListener();
+  }
+
+  /**
+    * Adds 'ended' event listener to all audio elements 
+    */
+  addAudioEndedEventListener(){
+    let results = document.querySelectorAll('audio');
+    for(let i=0; i<results.length; i++){
+      results[i].addEventListener('ended', evt => this.audioEndedHandler(evt));
+    }
   }
 
   /**
@@ -77,6 +87,7 @@ class Slides{
     * Displays a slide based on slideId
     */
   goto(slideId){
+    this.stopAudio();
     window.location.hash = slideId;
   }
 
@@ -173,6 +184,41 @@ class Slides{
   }
 
   /**
+    * Plays (or pauses) audio for the current slide 
+    */
+  playAudio(){
+    const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
+    if(audio && audio.paused){
+      audio.play();
+    }else{
+      audio.pause();
+    }
+  }
+
+  /**
+    * Stops audio for the current slide 
+    */
+  stopAudio(){
+    const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
+    if(audio){
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
+
+  /**
+    * Toggle autoplay 
+    */
+  toggleAutoplay(){
+    this.autoPlay = !this.autoPlay; 
+    if(this.autoPlay){
+      this.playAudio();
+    }else{
+      this.stopAudio();
+    }
+  }
+ 
+  /**
     * Enables keyboard shortcuts
     * For example: next, previous, fullscreen
     */
@@ -193,21 +239,16 @@ class Slides{
         this.next()
         break;
 
+      // autoplay
+      case 65: // a
+        event.preventDefault();
+        this.toggleAutoplay();
+        break;
+
       // fullscreen
       case 70: // f
         event.preventDefault();
         this.fullscreen();
-        break;
-
-      // play / pause
-      case 80: // p
-        event.preventDefault();
-        const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
-        if(audio && audio.paused){
-          audio.play();
-        }else{
-          audio.pause();
-        }
         break;
 
       // goto home slide
@@ -216,13 +257,17 @@ class Slides{
         this.goto(1);
         break;
 
+      // play / pause
+      case 80: // p
+        event.preventDefault();
+        this.playAudio();
+        break;
 
       // transcript / table of contents
       case 84: // t
         event.preventDefault();
         this.toggleTranscript();
         break;
-
     }
   }
 
@@ -232,22 +277,8 @@ class Slides{
     */
   hashchangeHandler(event){
     window.localStorage.setItem('currentSlide', JSON.stringify(this.slideInfo(this.currentId)));
-    if(this.playAudio){
-      // stop all current audio
-      const audioList = document.querySelectorAll('audio');
-      for(let i=0; i<audioList.length; i++){
-        audioList[i].pause();
-        audioList[i].currentTime = 0;
-      }
-
-      // play audio for current slide
-      const audio = document.querySelector(`section[id="${this.currentId}"] audio`);
-      if(audio){
-        audio.play();
-        if(this.autoPlay){
-          audio.addEventListener('ended', evt => this.audioEndedHandler(evt));
-        }
-      }
+    if(this.autoPlay){
+      this.playAudio();
     }
   }
 
@@ -261,6 +292,16 @@ class Slides{
       case 'goto':
         this.goto(message.args);
         break;
+      case 'playAudio':
+        this.playAudio();
+        break;
+      case 'toggleAutoplay':
+        this.toggleAutoplay();
+        break;
+      case 'toggleTranscript':
+        this.toggleTranscript();
+        break;
+
     }
   }
 
@@ -268,8 +309,8 @@ class Slides{
     * Handles event based on the end of audio playback
     */
   audioEndedHandler(event){
-    this.goto(this.currentId + 1);
+    if(this.autoPlay){
+      this.next();
+    }
   }
-
-
 }
