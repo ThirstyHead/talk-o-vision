@@ -1,9 +1,13 @@
 {
   "name": "talk-o-vision",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "An HTML-based slideshow framework",
+  "author": "Scott Davis <scott@thirstyhead.com>",
+  "license": "CC-BY-4.0",
   "main": "index.html",
   "scripts": {
+    "addlang": "node utils/addlang.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,8 +19,6 @@
     "slides",
     "slideshow"
   ],
-  "author": "Scott Davis <scott@thirstyhead.com>",
-  "license": "CC-BY-4.0",
   "bugs": {
     "url": "https://github.com/ThirstyHead/talk-o-vision/issues"
   },
