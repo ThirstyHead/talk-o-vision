@@ -13,6 +13,10 @@ html {
   box-sizing: inherit;
 }
 
+::-webkit-scrollbar{
+  display:none;
+}
+
 /**************************
   Theme
 ***************************/
