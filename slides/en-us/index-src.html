@@ -25,16 +25,50 @@
         opacity: 0.7;
         top: 5vh;
       }
+
+      .next-button-container{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .next-button{
+        border: none;
+        background: none;
+      }
     </style>
+
+    <script src="js/talk-o-vision.js"></script>
+    <script>
+      window.addEventListener('load', buttonInit);
+
+      function buttonInit(){
+        let nextButtons = document.querySelectorAll('.next-button');
+        console.dir(nextButtons);
+        for(let i=0; i<nextButtons.length; i++){
+          nextButtons[i].addEventListener('click', (event) => { slides.next(); });
+        }
+      }
+    </script>
   </head>
   <body>
     <h1 hidden aria-hidden="false"></h1>
     <main class="slideshow">
-      <section data-src="slides/title"></section>
+      <section data-src="slides/title">
+        <div class="next-button-container">
+          <button class="next-button">
+            <svg width="100px" height="100px" viewbox="0 0 100 100" fill="none" >
+              <title>Next</title>
+              <circle id="what" cx="50" cy="50" r="50" fill='red'/>
+            </svg>
+          </button>
+        </div>
+      </section>
       <section data-src="slides/instructions"></section>
       <section data-src="slides/bio"></section>
+
+
     </main>
 
-    <script src="js/talk-o-vision.js"></script>
   </body>
 </html>

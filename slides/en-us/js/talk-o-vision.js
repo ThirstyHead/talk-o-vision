@@ -7,6 +7,7 @@ window.addEventListener('load', init);
   */
 function init(){
   let slides = new Slides();
+  window.slides = slides;
 }
 
 /**
