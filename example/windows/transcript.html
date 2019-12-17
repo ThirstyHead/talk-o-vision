@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Transcript</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1,
+                                   user-scalable=yes">
+    <meta name="name" content="Scott Davis <scott@thirstyhead.com>">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <style>
+      h2{
+        margin-bottom: 0;
+      }
+
+      h3{
+        margin-bottom: 0;
+      }
+
+      section{
+        margin-bottom: 1em;
+      }
+
+      .current{
+        border: 2px solid gray;
+        background-color: yellow;
+        border-radius: 10px;
+        padding: 0.5em;
+      }
+    </style>
+
+    <script>
+    window.addEventListener('load', init);
+
+    /**
+      * Slideshow initialization
+      */
+    function init(){
+      let transcript = new Transcript();
+    }
+
+    /**
+      * Represents the transcript
+      */
+    class Transcript{
+      /**
+        * Creates a new Transcript object
+        * @constructor
+        */
+      constructor(){
+        this.parent = window.opener.parent;
+        this.list = JSON.parse(window.sessionStorage.getItem('toc'));
+        this.populatePage();
+        window.addEventListener('keydown', evt => this.keyHandler(evt));
+        window.addEventListener('storage', evt => this.storageHandler(evt));
+        window.location.hash = this.currentId;
+      }
+
+      /**
+        * @returns the current slide 
+        */
+      get currentSlide(){
+        return JSON.parse(window.localStorage.getItem('currentSlide'));
+      }
+      
+      /**
+        * @returns the current slide number
+        */
+      get currentId(){
+        return this.currentSlide.id; 
+      }
+
+      /**
+        * Populates page from data saved to sessionStorage by parent page
+        */
+      populatePage(){
+        let ol = document.createElement('ol');
+        for(let i=0; i<this.list.length; i++){
+          let slide = this.list[i];
+          let li = document.createElement('li');
+
+          // add .current class to current slide
+          if(i === (this.currentId - 1)){
+            li.classList.add('current');
+          }
+
+          // add id to li
+          li.id = slide.id;
+
+          // add title
+          let title = `<a href="${this.parent.origin}#${slide.id}">${slide.title}</a>`
+          let text = `<b>${title}</b>`;
+
+          if(slide.mainTitle){
+            text = `<h2>${title}</h2>`;
+          }
+
+          if(slide.sectionTitle){
+            text = `<hr><h2>${title}</h2>`;
+          }
+
+          // add transcript
+          text = `${text} <section>${slide.transcript}</section>`
+
+          li.innerHTML = text;
+          ol.appendChild(li);
+        }
+
+        let main = document.querySelector('main');
+        main.appendChild(ol);
+        this.addLinkRedirectToSlideshow();
+      }
+
+      addLinkRedirectToSlideshow(){
+        const links = document.querySelectorAll('a');
+        for(let i=0; i<links.length; i++){
+          links[i].addEventListener('click', evt => this.slideTitleClickHandler(evt));
+        }
+      }
+
+      /**
+        * Enables fullscreen
+        */
+      fullscreen(){
+        // normalize fullscreen behavior across browsers
+        let html = document.querySelector("html");
+        let requestFullscreen = html.requestFullscreen ||
+                                html.requestFullScreen ||
+                                html.webkitRequestFullscreen ||
+                                html.mozRequestFullScreen ||
+                                html.msRequestFullscreen;
+
+        let isFullScreen = document.webkitIsFullScreen;
+
+        let exitFullScreen = document.webkitExitFullscreen;
+
+        // toggle fullscreen
+        if(isFullScreen){
+          exitFullScreen.apply(document);
+        }else{
+          if(requestFullscreen){
+            requestFullscreen.apply(html);
+          }
+        }
+      }
+
+      goto(slideId){
+        let message = {};
+        message.method = 'goto'
+        message.args = slideId;
+        const parent = window.opener.parent;
+        parent.postMessage(message, "*")
+      }
+
+      slideTitleClickHandler(event){
+        event.preventDefault();
+
+        // Slide number (e.g. '#4')
+        let hash = event.srcElement.hash;
+        let slideId = hash.replace('#', '');
+        this.goto(slideId);
+      }
+
+      /** 
+        * Moves slideshow to previous slide
+        */
+      previous(){
+        let previous = this.currentId - 1;
+        if(previous <= 1){ 
+          previous = 1;
+        }   
+        this.goto(previous);
+      }
+
+      /** 
+        * Advances slideshow to next slide
+        */
+      next(){
+        let next = this.currentId + 1;
+        if(next >= this.list.length){
+          next = this.list.length;
+        }   
+        this.goto(next);
+      }
+
+      playAudio(){
+        let message = {};
+        message.method = 'playAudio';
+        const parent = window.opener.parent;
+        parent.postMessage(message, "*")
+      }
+
+      toggleAutoplay(){
+        let message = {};
+        message.method = 'toggleAutoplay';
+        const parent = window.opener.parent;
+        parent.postMessage(message, "*")
+      }
+
+      toggleTranscript(){
+        let message = {};
+        message.method = 'toggleTranscript';
+        const parent = window.opener.parent;
+        parent.postMessage(message, "*")
+      }
+
+
+
+      /**
+        * Enables keyboard shortcuts
+        * For example: next, previous, fullscreen
+        */
+      keyHandler(event){
+        switch(event.which){
+          // previous slide
+          case 33: // pgup
+          case 37: // left
+            event.preventDefault();
+            this.previous();
+            break;
+
+          // next slide
+          case 32: // spacebar
+          case 34: // pgdn
+          case 39: // right
+            event.preventDefault();
+            this.next()
+            break;
+
+          // autoplay
+          case 65: // a
+            event.preventDefault();
+            this.toggleAutoplay();
+            break;
+
+          // fullscreen
+          case 70: // f
+            event.preventDefault();
+            this.fullscreen();
+            break;
+
+          // goto home slide
+          case 72: // h
+            event.preventDefault();
+            this.goto(1);
+            break;
+
+          // play / pause
+          case 80: // p
+            event.preventDefault();
+            this.playAudio();
+            break;            
+
+          // transcript / table of contents
+          case 84: // t
+            event.preventDefault();
+            this.toggleTranscript();
+            break;
+
+        }
+      }
+
+      /**
+        * Listens for changes to localStorage
+        * triggered by slide change in main window
+        */
+      storageHandler(event){
+        const activeSlide = JSON.parse(event.newValue);
+
+        // remove current from all slides
+        let liList = document.querySelectorAll('li');
+        for(let i=0; i<liList.length; i++){
+          liList[i].classList.remove('current');
+        }
+
+        // highlight current slide
+        let activeLi = document.querySelector(`[id="${activeSlide.id}"]`)
+        activeLi.classList.add('current');
+        window.location.hash = activeSlide.id;
+      }
+       
+    }
+   </script>
+  </head>
+  <body>
+    <h1>Transcript</h1>
+    <main></main>
+
+  </body>
+</html>
