@@ -7,6 +7,7 @@ html {
   background-color: var(--theme-background-color);
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
 }
 
 *, *:before, *:after {
@@ -88,7 +89,6 @@ h2 a:hover{
 p{
   width: 80%;
   padding-left: 20%;
-  font-size: 2.5em;
 }
 
 section{
@@ -108,7 +108,7 @@ table{
 
 td, th{
   text-align: left;
-  vertical-align: top;
+  vertical-align: bottom;
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
@@ -190,7 +190,6 @@ ul li{
   font-family: var(--theme-font-family-heading);
 }
 
-
 .contain{
   height: 95vh;
   max-width: 95%;
@@ -227,6 +226,16 @@ ul li{
 
 .left{
   float: left;
+}
+
+.nav-button-right{
+  opacity: 0.8;
+  color: var(--theme-background-color);
+  background-color: var(--theme-foreground-color);
+  text-align: right;
+  padding: 0.25em;
+  height: 100vh;
+  width: 1em;
 }
 
 .outline{
