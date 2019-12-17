@@ -228,14 +228,23 @@ ul li{
   float: left;
 }
 
-.nav-button-right{
+.nav-button-next{
+  display: flex;
+  align-items: center;
+  float: right;
+  width: 1em;
+  height: 100vh;
+  padding: 0.25em;
   opacity: 0.8;
   color: var(--theme-background-color);
   background-color: var(--theme-foreground-color);
-  text-align: right;
-  padding: 0.25em;
-  height: 100vh;
-  width: 1em;
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.nav-button-next::before{
+  content: ">";
 }
 
 .outline{

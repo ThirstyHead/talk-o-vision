@@ -34,6 +34,7 @@ class Slides{
     window.addEventListener('message', evt => this.messageHandler(evt));
     this.autoPlay = false;
     this.addAudioEndedEventListener();
+    this.addNavButtonEventListeners();
   }
 
   /**
@@ -380,4 +381,17 @@ class Slides{
       this.next();
     }
   }
+
+
+  /**
+   * Handles left/right nav button clicks
+   */
+  addNavButtonEventListeners(){
+    let results = document.querySelectorAll('.nav-button-next');
+    console.dir(results);
+    for(let i=0; i<results.length; i++){
+      results[i].addEventListener('ended', evt => this.audioEndedHandler(evt));
+    }
+  }
+
 }
