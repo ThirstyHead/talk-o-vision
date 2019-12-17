@@ -25,9 +25,9 @@ html {
   --theme-foreground-color: white;
   --theme-highlight-color: yellow;
   --theme-link-hover-color: red;
-  --theme-font-size: 2rem;
-  --theme-font-family-heading: "Times New Roman", Times, serif;
-  --theme-font-family-body: Arial, Helvetica, sans-serif;
+  --theme-font-size: 2em;
+  --theme-font-family-heading: Helvetica, Arial, sans-serif;
+  --theme-font-family-body:    Helvetica, Arial, sans-serif;
 }
 
 /**************************
@@ -88,7 +88,7 @@ h2 a:hover{
 p{
   width: 80%;
   padding-left: 20%;
-  font-size: 2.5rem;
+  font-size: 2.5em;
 }
 
 section{
@@ -103,12 +103,13 @@ table{
   margin: auto;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 0.75em;
 }
 
 td, th{
   text-align: left;
   vertical-align: top;
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
 td a, th a{
@@ -118,7 +119,7 @@ td a, th a{
 
 td a:after, th a:after{
   content: " \1F517";
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 td a:hover, th a:hover{
@@ -150,11 +151,11 @@ ul li{
   background-color: var(--theme-highlight-color);
   opacity: 0.8;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5em;
   padding-left: 15%;
   padding-right: 15%;
   text-align: left;
-  font-size: 4rem;
+  font-size: 4em;
   font-weight: bold;
   font-family: var(--theme-font-family-heading);
   position: relative;
@@ -163,7 +164,7 @@ ul li{
 
 .bio{
   text-align: right;
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: bold;
   font-family: var(--theme-font-family-heading);
 }
@@ -183,21 +184,24 @@ ul li{
   object-fit: contain;
 }
 
-.contain-with-header{
-  height: 65vh;
-  max-width: 95%;
-  object-fit: contain;
-}
-
 .contain-half{
   height: 45vh;
   max-width: 95%;
   object-fit: contain;
 }
 
+.contain-with-header{
+  height: 65vh;
+  max-width: 95%;
+  object-fit: contain;
+}
 
 .display{
   display: block;
+}
+
+.embiggen{
+  font-size: 2em;
 }
 
 .half{
@@ -240,7 +244,7 @@ p.right{
 }
 
 .subtitle{
-  font-size: 3rem;
+  font-size: 3em;
   font-style: italic;
 }
 
@@ -274,3 +278,14 @@ p.right{
 .theme-invert th{
   border-bottom: 2px solid var(--theme-background-color);
 }
+
+/**************************
+  Printing 
+***************************/
+@media print{
+  @page{
+    size: letter landscape;
+  }
+}
+
+
