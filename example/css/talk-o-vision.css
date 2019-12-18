@@ -249,6 +249,27 @@ ul li{
   content: ">";
 }
 
+.nav-link-previous{
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 1em;
+  height: 100vh;
+  padding: 0.25em;
+  opacity: 0.8;
+  color: var(--theme-background-color);
+  background-color: var(--theme-foreground-color);
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.nav-link-previous::before{
+  content: "<";
+}
+
 .outline{
   border: solid 1px black;
   box-shadow: 10px 5px 5px #ccc;

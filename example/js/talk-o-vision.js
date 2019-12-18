@@ -78,13 +78,22 @@ class Slides{
               element.setAttribute('src', `${fetchUrl}/${originalSrc}`);
             }
 
-            // add next,previous links
-            if(i !== this.list.length){
+            // add next link
+            if(i < this.list.length - 1){
               let nextLink = document.createElement('a');
               nextLink.setAttribute('href', `#${i+2}`);
               nextLink.classList.add('nav-link-next');
               newSlide.insertBefore(nextLink, newSlide.firstChild);
             }
+
+            // add previous link
+            if(i !== 0){
+              let previousLink = document.createElement('a');
+              previousLink.setAttribute('href', `#${i}`);
+              previousLink.classList.add('nav-link-previous');
+              newSlide.insertBefore(previousLink, newSlide.firstChild);
+            }
+
 
             let parent = slide.parentNode;
             parent.replaceChild(newSlide, slide);
