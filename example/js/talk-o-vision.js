@@ -31,6 +31,18 @@ class Slides{
       this.fullscreen();
     }
 
+    remoteControl.play = () => {
+      this.playAudio();
+    }
+
+    remoteControl.autoplay = () => {
+      this.toggleAutoplay();
+    }
+
+    remoteControl.transcript = () => {
+      this.toggleTranscript();
+    }
+
     window.TalkOVision = remoteControl;
   }
 
