@@ -228,7 +228,7 @@ ul li{
   float: left;
 }
 
-.nav-button-next{
+.nav-link-next{
   display: flex;
   align-items: center;
   float: right;
@@ -241,9 +241,11 @@ ul li{
   -webkit-touch-callout: none; 
   -webkit-user-select: none;
   user-select: none;
+  text-decoration: none;
+  z-index: 100;
 }
 
-.nav-button-next::before{
+.nav-link-next::before{
   content: ">";
 }
 
@@ -264,8 +266,7 @@ p.right{
 }
 
 .section-title h2{
-  position: relative;
-  top: 35vh;
+  padding-top: 40vh;
 }
 
 .theme-invert{

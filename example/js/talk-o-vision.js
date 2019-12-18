@@ -34,7 +34,6 @@ class Slides{
     window.addEventListener('message', evt => this.messageHandler(evt));
     this.autoPlay = false;
     this.addAudioEndedEventListener();
-    this.addNavButtonEventListeners();
   }
 
   /**
@@ -66,9 +65,11 @@ class Slides{
           .then( (text) => {
             let htmlFragment = parser.parseFromString(text, 'text/html');
             let newSlide = htmlFragment.querySelector('section');
+
             // set attributes
             newSlide.setAttribute('id', slide.getAttribute('id'));
             newSlide.dataset.src = slide.dataset.src;
+
             // fix img, audio src
             let srcList = newSlide.querySelectorAll('img, audio');
             for(let j=0; j<srcList.length; j++){
@@ -76,6 +77,15 @@ class Slides{
               let originalSrc = element.getAttribute('src');
               element.setAttribute('src', `${fetchUrl}/${originalSrc}`);
             }
+
+            // add next,previous links
+            if(i !== this.list.length){
+              let nextLink = document.createElement('a');
+              nextLink.setAttribute('href', `#${i+2}`);
+              nextLink.classList.add('nav-link-next');
+              newSlide.insertBefore(nextLink, newSlide.firstChild);
+            }
+
             let parent = slide.parentNode;
             parent.replaceChild(newSlide, slide);
           });
@@ -381,17 +391,4 @@ class Slides{
       this.next();
     }
   }
-
-
-  /**
-   * Handles left/right nav button clicks
-   */
-  addNavButtonEventListeners(){
-    let results = document.querySelectorAll('.nav-button-next');
-    console.dir(results);
-    for(let i=0; i<results.length; i++){
-      results[i].addEventListener('ended', evt => this.audioEndedHandler(evt));
-    }
-  }
-
 }
