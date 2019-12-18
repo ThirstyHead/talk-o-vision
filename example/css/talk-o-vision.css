@@ -235,7 +235,7 @@ ul li{
   width: 1em;
   height: 100vh;
   padding: 0.25em;
-  opacity: 0.8;
+  opacity: 0; /* NOTE: opacity:0 is hidden but still clickable */
   color: var(--theme-background-color);
   background-color: var(--theme-foreground-color);
   -webkit-touch-callout: none; 
@@ -256,7 +256,7 @@ ul li{
   width: 1em;
   height: 100vh;
   padding: 0.25em;
-  opacity: 0.8;
+  opacity: 0; /* NOTE: opacity:0 is hidden but still clickable */
   color: var(--theme-background-color);
   background-color: var(--theme-foreground-color);
   -webkit-touch-callout: none; 
