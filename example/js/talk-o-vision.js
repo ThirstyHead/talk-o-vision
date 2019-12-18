@@ -7,6 +7,7 @@ window.addEventListener('load', init);
   */
 function init(){
   let slides = new Slides();
+  slides.registerRemoteControl();
 }
 
 /**
@@ -19,6 +20,18 @@ class Slides{
     */
   constructor(){
     this.reload();
+  }
+
+  /**
+   * Registers a global remote control for the slideshow
+   */
+  registerRemoteControl(){
+    let remoteControl = {};
+    remoteControl.fullscreen = () => {
+      this.fullscreen();
+    }
+
+    window.TalkOVision = remoteControl;
   }
 
   /**
@@ -93,7 +106,6 @@ class Slides{
               previousLink.classList.add('nav-link-previous');
               newSlide.insertBefore(previousLink, newSlide.firstChild);
             }
-
 
             let parent = slide.parentNode;
             parent.replaceChild(newSlide, slide);
