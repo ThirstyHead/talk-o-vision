@@ -1,6 +1,5 @@
 # Talk-o-Vision
-Introducing Talk-o-Vision, a browser-native slideshow. That's HTML, CSS, and JavaScript. No frameworks. No external
-dependencies.
+Introducing Talk-o-Vision, a browser-native slideshow. That's HTML, CSS, and JavaScript. No frameworks. No external dependencies.
 
 
 ## Running Locally
@@ -15,6 +14,7 @@ $ npm start
 
 Then visit http://localhost:8000 in a browser.
 
+NOTE: This is -- intentionally -- a "Fainting Goat" web server. It is meant to halt at every error that occurs, rather than recovering gracefully. I like this feature, but others might find it annoying. That's why both Caddy and NodeJS web servers are included. 
 
 
 
