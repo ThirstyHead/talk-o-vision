@@ -4,7 +4,7 @@ Introducing Talk-o-Vision, a browser-native slideshow. That's HTML, CSS, and Jav
 
 ## Running Locally
 
-This presentation can be served from any standard web server. (For example, [Caddy](https://caddyserver.com/).)
+This presentation can be served from any standard web server. (For example, [Caddy](https://caddyserver.com/). See the included `Caddyfile` for configuration details.)
 
 A NodeJS-based web server is included to make it easy to run locally. To run the web server:
 
