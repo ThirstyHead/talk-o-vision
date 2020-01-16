@@ -7,6 +7,7 @@ window.addEventListener('load', init);
   */
 function init(){
   let slides = new Slides();
+  slides.registerRemoteControl();
 }
 
 /**
@@ -19,6 +20,30 @@ class Slides{
     */
   constructor(){
     this.reload();
+  }
+
+  /**
+   * Registers a global remote control for the slideshow
+   */
+  registerRemoteControl(){
+    let remoteControl = {};
+    remoteControl.fullscreen = () => {
+      this.fullscreen();
+    }
+
+    remoteControl.play = () => {
+      this.playAudio();
+    }
+
+    remoteControl.autoplay = () => {
+      this.toggleAutoplay();
+    }
+
+    remoteControl.transcript = () => {
+      this.toggleTranscript();
+    }
+
+    window.TalkOVision = remoteControl;
   }
 
   /**
@@ -65,9 +90,11 @@ class Slides{
           .then( (text) => {
             let htmlFragment = parser.parseFromString(text, 'text/html');
             let newSlide = htmlFragment.querySelector('section');
+
             // set attributes
             newSlide.setAttribute('id', slide.getAttribute('id'));
             newSlide.dataset.src = slide.dataset.src;
+
             // fix img, audio src
             let srcList = newSlide.querySelectorAll('img, audio');
             for(let j=0; j<srcList.length; j++){
@@ -75,6 +102,23 @@ class Slides{
               let originalSrc = element.getAttribute('src');
               element.setAttribute('src', `${fetchUrl}/${originalSrc}`);
             }
+
+            // add next link
+            if(i < this.list.length - 1){
+              let nextLink = document.createElement('a');
+              nextLink.setAttribute('href', `#${i+2}`);
+              nextLink.classList.add('nav-link-next');
+              newSlide.insertBefore(nextLink, newSlide.firstChild);
+            }
+
+            // add previous link
+            if(i !== 0){
+              let previousLink = document.createElement('a');
+              previousLink.setAttribute('href', `#${i}`);
+              previousLink.classList.add('nav-link-previous');
+              newSlide.insertBefore(previousLink, newSlide.firstChild);
+            }
+
             let parent = slide.parentNode;
             parent.replaceChild(newSlide, slide);
           });

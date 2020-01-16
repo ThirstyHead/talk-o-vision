@@ -44,6 +44,10 @@ body{
   font-family: var(--theme-font-family-body);
 }
 
+button{
+  font-size: 1em;
+}
+
 caption{
   caption-side: bottom;
   padding: 2em 1em 1em 1em;
@@ -228,14 +232,54 @@ ul li{
   float: left;
 }
 
-.nav-button-right{
-  opacity: 0.8;
+.nav-link-next{
+  display: flex;
+  align-items: center;
+  float: right;
+  width: 1em;
+  height: 100vh;
+  padding: 0.25em;
+  opacity: 0.0; /* NOTE: opacity:0 is hidden but still clickable */
   color: var(--theme-background-color);
   background-color: var(--theme-foreground-color);
-  text-align: right;
-  padding: 0.25em;
-  height: 100vh;
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.nav-link-next::before{
+  content: ">";
+}
+
+.nav-link-previous{
+  display: flex;
+  align-items: center;
+  float: left;
   width: 1em;
+  height: 100vh;
+  padding: 0.25em;
+  opacity: 0; /* NOTE: opacity:0 is hidden but still clickable */
+  color: var(--theme-background-color);
+  background-color: var(--theme-foreground-color);
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.nav-link-previous::before{
+  content: "<";
+}
+
+.nav-link-show{
+  opacity: 0.8;
+}
+
+.nav-link-hide{
+  opacity: 0;
 }
 
 .outline{
@@ -255,8 +299,7 @@ p.right{
 }
 
 .section-title h2{
-  position: relative;
-  top: 35vh;
+  padding-top: 40vh;
 }
 
 .theme-invert{
