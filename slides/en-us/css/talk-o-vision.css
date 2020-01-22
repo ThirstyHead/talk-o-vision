@@ -250,6 +250,10 @@ p.right{
   top: 35vh;
 }
 
+.smaller{
+  font-size: 1em;
+}
+
 .theme-invert{
   background-color: var(--theme-foreground-color);
   color: var(--theme-background-color);
@@ -257,6 +261,14 @@ p.right{
 
 .theme-invert li{
   color: var(--theme-background-color);
+}
+
+.theme-invert li a{
+  color: var(--theme-background-color);
+}
+
+.theme-invert li a:hover{
+  color: var(--theme-link-hover-color);
 }
 
 .theme-invert code{
